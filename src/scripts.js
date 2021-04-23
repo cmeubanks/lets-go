@@ -17,8 +17,8 @@ const travelerData = document.querySelector('#travelerData')
 window.addEventListener('load', loadData)
 
 function loadData () {
-  getData('travelers')
-  .then(response => travelerData.innerText = response.travelers[0].id)
+  // getData('travelers')
+  // .then(response => travelerData.innerText = response.travelers[0].id)
   getData('destinations')
   .then(response => {
     destinations = new Destinations(response.destinations)
