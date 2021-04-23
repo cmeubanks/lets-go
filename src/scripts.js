@@ -8,7 +8,7 @@ import './images/turing-logo.png'
 import Destinations from './Destinations';
 import Traveler from './Traveler';
 import Trip from './Trip';
-let destinations;
+let destinations, trip;
 
 const travelerData = document.querySelector('#travelerData')
 
@@ -22,5 +22,10 @@ function loadData () {
     destinations = new Destinations(response.destinations)
     console.log(destinations)
   })
+  getData('trips')
+    .then(response => {
+      trip = new Trip(destinations, response.trips)
+      console.log(trip)
+    })
 
 }

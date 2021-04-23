@@ -1,6 +1,6 @@
 class Trip {
-  constructor(destinationdata, tripData) {
-    this.destinationdata = destinationdata;
+  constructor(destinationData, tripData) {
+    this.destinationData = destinationData;
     this.tripData = tripData;
   }
 
@@ -16,7 +16,9 @@ class Trip {
     const allTrips = this.getTravelersTrips(userID)
     //dayjs filter by year
     const allTripsforYear = allTrips.filter(trip => trip.date === date)
-    allTripsforYear.
+    allTripsforYear.reduce((arr, trip) => {
+      trip['tripCost'] = this.destinationData.filter(place => place.id === trip.destinationID)
+    },[])
   }
 }
 
