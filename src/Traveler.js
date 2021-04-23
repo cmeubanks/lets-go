@@ -11,3 +11,6 @@ class Traveler {
 
 //methodToUpdateTripCost if request is made?
 }
+
+
+export default Traveler;
