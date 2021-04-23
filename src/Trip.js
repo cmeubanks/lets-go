@@ -23,7 +23,7 @@ class Trip {
     //   return arr
     // }, [])
     const addCostInfo = allTripsforYear.map(trip => ({...trip, 'destinationInfo': this.destinationData.filter(place => place.id === trip.destinationID)[0]}))
-
+    console.log(addCostInfo)
     const totalTripsSpend = addCostInfo.reduce((sum, trip) => {
        sum += (trip.travelers * trip.destinationInfo.estimatedFlightCostPerPerson)
        sum += (trip.duration * trip.destinationInfo.estimatedLodgingCostPerDay)
