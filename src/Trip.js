@@ -16,12 +16,7 @@ class Trip {
     const allTrips = this.getTravelersTrips(userID)
     //dayjs filter by year
     const allTripsforYear = allTrips.filter(trip => trip.date >= date)
-    // const costInfo = allTripsforYear.reduce((arr, trip) => { const obj = {'destinationInfo': this.destinationData.filter(place => place.id === trip.destinationID),
-    // 'tripLength': trip.duration,
-    // 'travelers': trip.travelers}
-    //   arr.push(obj)
-    //   return arr
-    // }, [])
+  
     const addCostInfo = allTripsforYear.map(trip => ({...trip, 'destinationInfo': this.destinationData.filter(place => place.id === trip.destinationID)[0]}))
 
     const totalTripsSpend = addCostInfo.reduce((sum, trip) => {
