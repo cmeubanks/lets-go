@@ -6,7 +6,7 @@ class Trip {
 
   getTravelersTrips(userID) {
     //all of user's trips
-    const userTrips = this.tripData.filter(trip => trip.userID === userID)
+    const userTrips = this.tripData.trips.filter(trip => trip.userID === userID)
     return userTrips
   }
 
@@ -16,7 +16,7 @@ class Trip {
     const allTrips = this.getTravelersTrips(userID)
     //dayjs filter by year
     const allTripsforYear = allTrips.filter(trip => trip.date >= date)
-  
+
     const addCostInfo = allTripsforYear.map(trip => ({...trip, 'destinationInfo': this.destinationData.filter(place => place.id === trip.destinationID)[0]}))
 
     const totalTripsSpend = addCostInfo.reduce((sum, trip) => {
