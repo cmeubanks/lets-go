@@ -10,6 +10,8 @@ import Traveler from './Traveler';
 import Trip from './Trip';
 let destinations, trip;
 
+let destinationsArray = [];
+
 const travelerData = document.querySelector('#travelerData')
 
 window.addEventListener('load', loadData)
@@ -20,12 +22,15 @@ function loadData () {
   getData('destinations')
   .then(response => {
     destinations = new Destinations(response.destinations)
-    console.log(destinations)
   })
   getData('trips')
     .then(response => {
-      trip = new Trip(destinations, response.trips)
-      console.log(trip)
+      trip = new Trip(destinations.destinations, response.trips)
+
+      // const userTrips = trip.getTravelersTrips(44)
+      // console.log(userTrips)
+      const tripCostforYear = trip.travelerTotalSpentInYear(44, "2019/12/15")
+      console.log(tripCostforYear)
     })
 
 }

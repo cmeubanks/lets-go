@@ -15,10 +15,15 @@ class Trip {
     //use dayjs to convert date to year
     const allTrips = this.getTravelersTrips(userID)
     //dayjs filter by year
-    const allTripsforYear = allTrips.filter(trip => trip.date === date)
-    allTripsforYear.reduce((arr, trip) => {
-      trip['tripCost'] = this.destinationData.filter(place => place.id === trip.destinationID)
-    },[])
+    const allTripsforYear = allTrips.filter(trip => trip.date >= date)
+    // const costInfo = allTripsforYear.reduce((arr, trip) => { const obj = {'destinationInfo': this.destinationData.filter(place => place.id === trip.destinationID),
+    // 'tripLength': trip.duration,
+    // 'travelers': trip.travelers}
+    //   arr.push(obj)
+    //   return arr
+    // }, [])
+    const costInfo = allTripsforYear.map(trip => ({...trip, 'destinationInfo': this.destinationData.filter(place => place.id === trip.destinationID)[0]}))
+    return costInfo
   }
 }
 
