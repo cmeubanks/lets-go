@@ -3,17 +3,8 @@
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
-import {getData} from './api'
+
+import './scripts.js'
+
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
-
-console.log('This is the JavaScript entry file - your code begins here.');
-
-const travelerData = document.querySelector('#travelerData')
-
-window.addEventListener('load', loadData)
-
-function loadData () {
-  getData('travelers')
-  .then(response => travelerData.innerText = response.travelers[0].id)
-}
+// import './images/turing-logo.png'

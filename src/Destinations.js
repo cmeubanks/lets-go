@@ -1,3 +1,7 @@
+const dayjs = requier('dayjs')
+
+dayjs.().format()
+
 class Destinations {
   constructor(destinationData) {
     this.destinations = destinationData;
