@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="#">
+    <meta name="authors" content="Caroline Eubanks">
+    <meta name="description" content="Mod 2 - Final Project - Travel Tracker">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Let's Go</title>
+    <link type="text/css" href="../css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <h1>Let's Go</h1>
+      <h2 class="greeting">Welcome, User</h2>
+      <h2>Today's Date</h2>
+      <h2 id="spending">Total Spent this year: $$</h2>
+      <button class="logout small-btn">Log Out</button>
+    </header>
+    <section class="trips">
+       <div class="trip-btn-container">
+         <button class="trip-btn" id="upcoming">Upcoming Trips</button>
+         <button class="trip-btn" id="present">Current Trips</button>
+         <button class="trip-btn" id="pending">Pending Trips</button>
+         <button class="trip-btn" id="past">Past Trips</button>
+       </div>
+       <h2 id="trip-type-section">UPCOMING TRIPS</h2>
+       <div class="card-container">
+       </div>
+     </section>
+
     <h1>Webpack Starter Kit</h1>
     <p id="travelerData"></p>
     <p id="tripData"></p>
