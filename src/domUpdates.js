@@ -2,10 +2,11 @@ const domUpdates = {
 
   cardUpdates(traveler, buttonId){
     const tripCards = document.querySelector('.card-container');
+
     tripCards.innerHTML = '';
     let tripInfo = '';
-    if (traveler[buttonID].length > 0) {
-      traveler[buttonID].forEach(trip => {
+    if (traveler[buttonId].length > 0) {
+      traveler[buttonId].forEach(trip => {
         const formattedDate = this.formatDate(trip.date);
         tripInfo += `
         <article class="trip-cards">
@@ -23,7 +24,7 @@ const domUpdates = {
       })
     } else {
       tripInfo = `
-        <h3 class="no-trips">You do not have any ${displayType} trips </h3>`;
+        <h3 class="no-trips">You do not have any ${buttonId} trips </h3>`;
     }
 
     tripCards.insertAdjacentHTML('beforeend', tripInfo);
