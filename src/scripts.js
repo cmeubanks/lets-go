@@ -8,7 +8,7 @@ import './images/turing-logo.png'
 import Destinations from './Destinations';
 import Traveler from './Traveler';
 import Trip from './Trip';
-let destinations, trip;
+let destinations, trip, traveler;
 
 let destinationsArray = [];
 
@@ -17,8 +17,6 @@ const travelerData = document.querySelector('#travelerData')
 window.addEventListener('load', loadData)
 
 function loadData () {
-  // getData('travelers')
-  // .then(response => travelerData.innerText = response.travelers[0].id)
   getData('destinations')
   .then(response => {
     destinations = new Destinations(response.destinations)
@@ -26,12 +24,19 @@ function loadData () {
   })
   getData('trips')
     .then(response => {
-      trip = new Trip(destinationsArray, response)
-      // console.log(trip)
+      trip = new Trip(destinations.destinations, response.trips)
+      // console.log("trip instance", trip)
+    })
+      getData('travelers')
+      .then(response => travelerData.innerText = response.travelers[0].id)
+      .then(response => {
+         traveler = new Traveler(response, trip.getTravelersTrips(1), trip.travelerTotalSpentInYear(1,"2021/01/09"))
+         console.log("showPresentTrips", traveler.showPresentTrips("2021/01/09"))
+       })
+
       // const userTrips = trip.getTravelersTrips(44)
       // console.log(userTrips)
       // const tripCostforYear = trip.travelerTotalSpentInYear(44, "2019/12/15")
       // console.log(tripCostforYear)
-    })
 
 }
