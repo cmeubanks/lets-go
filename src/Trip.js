@@ -19,7 +19,7 @@ class Trip {
     const allTrips = this.getTravelersTrips(userID)
 
     const allTripsforYear = allTrips.filter(trip => dayjs(trip.date).isSame(date, 'year'))
-    console.log(allTripsforYear)
+    // console.log(allTripsforYear)
 
     const addCostInfo = allTripsforYear.map(trip => ({...trip, 'destinationInfo': this.destinationData.destinations.filter(place => place.id === trip.destinationID)[0]}))
 
