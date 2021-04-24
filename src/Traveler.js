@@ -21,7 +21,7 @@ class Traveler {
   showPastTrips(todaysDate) {
     const pastTrips = this.allTrips.filter(trip => dayjs(trip.date).isBefore(todaysDate))
 
-    const result = pastTrips.map(trip => ({...trip, 'destination': this.destinations.filter(place => trip.destinationID === place.id)}))
+    const result = pastTrips.map(trip => ({...trip, 'destination': this.destinations.filter(place => trip.destinationID === place.id)[0]}))
 
     result.forEach(trip => this.past.push(trip))
   }
@@ -29,7 +29,7 @@ class Traveler {
   showFutureTrips(todaysDate) {
     const futureTrips = this.allTrips.filter(trip => dayjs(trip.date).isAfter(todaysDate))
 
-    const result = futureTrips.map(trip => ({...trip, 'destination': this.destinations.filter(place => trip.destinationID === place.id)}))
+    const result = futureTrips.map(trip => ({...trip, 'destination': this.destinations.filter(place => trip.destinationID === place.id)[0]}))
 
     result.forEach(trip => this.future.push(trip))
   }
@@ -41,7 +41,7 @@ class Traveler {
       return dayjs(todaysDate).isBetween(trip.date, endDate, null, '[]')
     })
 
-    const result = presentTrips.map(trip => ({...trip, 'destination': this.destinations.filter(place => trip.destinationID === place.id)}))
+    const result = presentTrips.map(trip => ({...trip, 'destination': this.destinations.filter(place => trip.destinationID === place.id)[0]}))
 
     result.forEach(trip => this.present.push(trip))
   }
