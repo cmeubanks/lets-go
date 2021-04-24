@@ -40,3 +40,24 @@ function loadData () {
       // console.log(tripCostforYear)
 
 }
+
+
+function requestNewTrip() {
+   const travelerRequest = {
+     id: Date.now(),
+     userID: traveler.id,
+     destinationID: form.value,
+     travelers: form.value,
+     date: <string 'YYYY/MM/DD'>,
+     duration: form.value,
+     status: 'pending',
+     suggestedActivities: []
+    }
+
+    sendData('http://localhost:3001/api/v1/trips', travelerRequest)
+    .then(response => {
+      traveler.pendingTrips.push(response)
+      //domUpdates - displayPendingTrips
+    })
+
+}
