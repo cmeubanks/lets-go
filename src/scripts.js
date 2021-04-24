@@ -31,10 +31,13 @@ function loadData () {
       trip = new Trip(destinations.destinations, response.trips)
       // console.log("trip instance", trip)
     })
-      getData('travelers')
-      .then(response => travelerData.innerText = response.travelers[0].id)
+      getData('travelers/1')
       .then(response => {
-         traveler = new Traveler(response, trip.getTravelersTrips(1), trip.travelerTotalSpentInYear(1,"2021/01/09"))
+         traveler = new Traveler(response, trip.getTravelersTrips(1), trip.travelerTotalSpentInYear(1,"2021/01/09"), destinations.destinations)
+         console.log(traveler)
+         traveler.showPastTrips("2021/01/09");
+         traveler.showFutureTrips("2021/01/09");
+         traveler.showPresentTrips("2021/01/09");
          // console.log("showPresentTrips", traveler.showPresentTrips("2021/01/09"))
        })
 

@@ -7,13 +7,13 @@ const domUpdates = {
     let tripInfo = '';
     if (traveler[buttonId].length > 0) {
       traveler[buttonId].forEach(trip => {
-        const formattedDate = this.formatDate(trip.date);
+        const formattedDate = trip.date;
         tripInfo += `
         <article class="trip-cards">
         <div class="img-wrap">
-        <img class="trip-img" src=${trip.destination.image} alt=${trip.destination.alt}>
+        <img class="trip-img" src=${trip.id} alt=${trip.id}>
         </div>
-        <h3 class="destination-name">${trip.destination.destination}</h3>
+        <h3 class="destination-name">${trip.id}</h3>
         <p>Trip date: ${formattedDate} <br>
         Travelers: ${trip.travelerCount} <br>
         Duration: ${trip.duration} <br>
