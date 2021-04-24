@@ -182,4 +182,10 @@ describe('Trip', () => {
      },
    ]);
  });
+
+ it('should return the total money spent on trips, plus agent fee, for the current year', () => {
+
+    const moneySpent = trip.travelerTotalSpentInYear(1, '2020/02/09')
+   expect(moneySpent).to.equal(3740)
+ })
 })

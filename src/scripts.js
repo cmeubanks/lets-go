@@ -22,15 +22,16 @@ function loadData () {
   getData('destinations')
   .then(response => {
     destinations = new Destinations(response.destinations)
+    destinationsArray.push(destinations)
   })
   getData('trips')
     .then(response => {
-      trip = new Trip(destinations.destinations, response.trips)
-
+      trip = new Trip(destinationsArray, response)
+      // console.log(trip)
       // const userTrips = trip.getTravelersTrips(44)
       // console.log(userTrips)
-      const tripCostforYear = trip.travelerTotalSpentInYear(44, "2019/12/15")
-      console.log(tripCostforYear)
+      // const tripCostforYear = trip.travelerTotalSpentInYear(44, "2019/12/15")
+      // console.log(tripCostforYear)
     })
 
 }
