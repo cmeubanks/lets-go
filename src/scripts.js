@@ -16,12 +16,13 @@ let destinationsInfo, tripsInfo, travelerInfo
 const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
 const formBtn = document.querySelector('#formBtn');
-const closeWindow = document.querySelector('#close-btn');
+const closeWindow = document.querySelector('#closeBtn');
 
 
 window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 formBtn.addEventListener('click', loadForm)
+closeWindow.addEventListener('click', closeForm)
 
 
 function loadData () {
@@ -35,37 +36,6 @@ function loadData () {
 
 
 }
-  //   .then(response => travelerInfo = response)
-  //   .then(response => {
-  //     console.log("array holder", destinationsInfo)
-  //     destinations = new Destinations(destinationsInfo.destinations)
-  //     console.log("destination class", destinations) })
-  //   .then(response => {
-  //     trip = new Trip(destinationsInfo.destinations, tripsInfo.trips)
-  //     traveler = new Traveler(travelerInfo, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinationsInfo.destinations)
-  //     traveler.showPastTrips("2021/01/09");
-  //     traveler.showFutureTrips("2021/01/09");
-  //     traveler.showPresentTrips("2021/01/09");
-  //   })
-  // }
-
-  // getData('destinations')
-  //   .then(response => destinationsInfo = response)
-  // getData('trips')
-  //   .then(response => tripsInfo = response)
-  // getData('travelers/1')
-  //   .then(response => travelerInfo = response)
-  //   .then(response => {
-  //     console.log("array holder", destinationsInfo)
-  //     destinations = new Destinations(destinationsInfo.destinations)
-  //     console.log("destination class", destinations) })
-  //   .then(response => {
-  //     trip = new Trip(destinationsInfo.destinations, tripsInfo.trips)
-  //     traveler = new Traveler(travelerInfo, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinationsInfo.destinations)
-  //     traveler.showPastTrips("2021/01/09");
-  //     traveler.showFutureTrips("2021/01/09");
-  //     traveler.showPresentTrips("2021/01/09");
-  //   })
 
 function showTrips(date) {
   traveler.showPastTrips(date);
@@ -81,6 +51,10 @@ function displayTrips(event) {
 function loadForm() {
   domUpdates.loadDropDownData(destinations);
   domUpdates.showModal();
+}
+
+function closeForm() {
+  domUpdates.hideModal();
 }
 
 
