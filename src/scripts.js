@@ -20,6 +20,7 @@ const tripButtons = document.querySelectorAll('.trip-btn');
 window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 
+
 function loadData () {
   getData('destinations')
     .then(response => destinationsInfo = response)
@@ -28,6 +29,7 @@ function loadData () {
   getData('travelers/1')
     .then(response => travelerInfo = response)
     .then(response => {
+      destinations = new Destinations(destinationsInfo.destinations)
       trip = new Trip(destinationsInfo.destinations, tripsInfo.trips)
       traveler = new Traveler(travelerInfo, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinationsInfo.destinations)
       traveler.showPastTrips("2021/01/09");

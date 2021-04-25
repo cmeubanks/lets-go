@@ -32,6 +32,22 @@ const domUpdates = {
     tripCards.insertAdjacentHTML('beforeend', tripInfo);
   },
 
+
+  loadDropDownData() {
+    const tripChoice = document.querySelector('#tripChoice');
+
+    let destinationSelection = '';
+    destinations.forEach(destination => {
+      destinationSelection += `
+      <option value="">--Please choose an option--</option>
+      <option value="${destination.destination}" id="${destination.id}">${destination.destination}</option>
+      `
+
+      tripChoice.innerHTML = destinationSelection;
+    })
+
+  }
+
   }
 
 export default domUpdates;
