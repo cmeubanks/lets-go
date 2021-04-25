@@ -17,12 +17,14 @@ const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
 const formBtn = document.querySelector('#formBtn');
 const closeWindow = document.querySelector('#closeBtn');
+const tripEstimate = document.querySelector('#tripEst')
 
 
 window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 formBtn.addEventListener('click', loadForm)
 closeWindow.addEventListener('click', closeForm)
+tripEstimate.addEventListener('click', calculateNewTripCost)
 
 
 function loadData () {
@@ -57,6 +59,21 @@ function closeForm() {
   domUpdates.hideModal();
 }
 
+function calculateNewTripCost(){
+  const postObj = domUpdates.getFormValues()
+
+  const locationID = destinations.destinations.find(place =>{
+    if(postObj.destination === place.destination){
+      return place.id
+    }
+  })
+  console.log('id', locationID.id)
+}
+
+function calculateTrip(){
+
+
+}
 
 function requestNewTrip() {
    const travelerRequest = {

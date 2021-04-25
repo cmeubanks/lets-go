@@ -56,6 +56,25 @@ const domUpdates = {
     modal.style.display = 'none';
   },
 
+  getFormValues(){
+    const startVal = document.querySelector('#start').value;
+    const durationVal = document.querySelector('#duration').value;
+    const groupVal = document.querySelector('#groupCount').value;
+    const destinationVal = document.querySelector('#tripChoice').value;
+
+    const destinationID = document.querySelector('#tripChoice').id
+    console.log(destinationID)
+
+    const postObj = {
+      startDate: startVal,
+      duration: durationVal,
+      groupCount: groupVal,
+      destination: destinationVal
+    }
+
+    return postObj
+  }
+
   };
 
 export default domUpdates;
