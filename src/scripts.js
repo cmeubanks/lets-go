@@ -12,6 +12,7 @@ import domUpdates from './domUpdates'
 let destinations, trip, traveler;
 
 let destinationsInfo, tripsInfo, travelerInfo
+var dayjs = require('dayjs')
 
 const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
@@ -62,12 +63,20 @@ function closeForm() {
 function calculateNewTripCost(){
   const postObj = domUpdates.getFormValues()
 
-  const locationID = destinations.destinations.find(place =>{
+  const locationObj = destinations.destinations.find(place =>{
     if(postObj.destination === place.destination){
       return place.id
     }
   })
-  console.log('id', locationID.id)
+
+  const flightCost = locationObj.estimatedFlightCostPerPerson * postObj.groupCount
+  const lodgingCost = locationObj.estimatedLodgingCostPerDay * postObj.duration
+
+  const tripCost = flightCost + lodgingCost;
+  const agentFee = tripCost * 0.10
+  const tripTotalCost = tripCost + agentFee
+
+  return tripTotalCost;
 }
 
 function calculateTrip(){
