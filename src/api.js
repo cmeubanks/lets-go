@@ -17,7 +17,9 @@ export function sendData(url, data) {
     }
   })
   .then(response => {
+    console.log("api response", response)
     checkStatus(response)
+    console.log(response.json())
     return response.json()
   })
   .catch(err => console.log(err))

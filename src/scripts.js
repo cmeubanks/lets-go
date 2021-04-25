@@ -9,6 +9,7 @@ import Destinations from './Destinations';
 import Traveler from './Traveler';
 import Trip from './Trip';
 import domUpdates from './domUpdates'
+import {sendData} from './api'
 let destinations, trip, traveler;
 
 let destinationsInfo, tripsInfo, travelerInfo
@@ -19,6 +20,7 @@ const tripButtons = document.querySelectorAll('.trip-btn');
 const formBtn = document.querySelector('#formBtn');
 const closeWindow = document.querySelector('#closeBtn');
 const tripEstimate = document.querySelector('#tripEst')
+const submitRequest = document.querySelector('#tripRqst')
 
 
 window.addEventListener('load', loadData)
@@ -26,6 +28,7 @@ tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 formBtn.addEventListener('click', loadForm)
 closeWindow.addEventListener('click', closeForm)
 tripEstimate.addEventListener('click', calculateNewTripCost)
+submitRequest.addEventListener('click', requestNewTrip)
 
 
 function loadData () {
@@ -62,12 +65,14 @@ function closeForm() {
 
 function calculateNewTripCost(){
   const postObj = domUpdates.getFormValues()
+  console.log(postObj)
 
   const locationObj = destinations.destinations.find(place =>{
     if(postObj.destination === place.destination){
       return place.id
     }
   })
+  // console.log("locationObj",locationObj)
 
   const flightCost = locationObj.estimatedFlightCostPerPerson * postObj.groupCount
   const lodgingCost = locationObj.estimatedLodgingCostPerDay * postObj.duration
@@ -85,20 +90,32 @@ function calculateTrip(){
 }
 
 function requestNewTrip() {
+  const postObj = domUpdates.getFormValues()
+
+  const newID = destinations.destinations.find(destination => {
+    if(postObj.destination === destination.destination){
+      return destination
+    }
+  }).id
+
    const travelerRequest = {
      id: Date.now(),
      userID: traveler.id,
-     destinationID: form.value,
-     travelers: form.value,
-     date: 'YYYY/MM/DD',
-     duration: form.value,
+     destinationID: newID,
+     travelers: parseInt(postObj.groupCount),
+     date: dayjs(postObj.startDate).format('YYYY/MM/DD'),
+     duration: parseInt(postObj.duration),
      status: 'pending',
      suggestedActivities: []
     }
 
+    console.log('post Data', travelerRequest)
+
     sendData('http://localhost:3001/api/v1/trips', travelerRequest)
     .then(response => {
-      traveler.pendingTrips.push(response)
+      console.log(response)
+      // traveler.pendingTrips.push(response)
+      // console.log(traveler.pendingTrips)
       //domUpdates - displayPendingTrips
     })
 

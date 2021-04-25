@@ -74,7 +74,6 @@ const domUpdates = {
 
   displayNewTripCost(sum) {
     const tripTotal = document.querySelector('#tripTotal')
-
     tripTotal.innerText = sum;
   }
 
