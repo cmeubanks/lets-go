@@ -39,12 +39,11 @@ const domUpdates = {
     let destinationSelection = '';
     destinations.destinations.forEach(destination => {
       destinationSelection += `
-      <option value="">--Please choose an option--</option>
       <option value="${destination.destination}" id="${destination.id}">${destination.destination}</option>
       `
 
     })
-    tripChoice.innerHTML = destinationSelection;
+    tripChoice.insertAdjacentHTML('beforeend', destinationSelection);
   },
 
   showModal() {
