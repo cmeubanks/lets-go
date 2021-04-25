@@ -32,6 +32,30 @@ const domUpdates = {
     tripCards.insertAdjacentHTML('beforeend', tripInfo);
   },
 
-  }
+
+  loadDropDownData(destinations) {
+    const tripChoice = document.querySelector('#tripChoice');
+    console.log("domupdates", destinations);
+    let destinationSelection = '';
+    destinations.destinations.forEach(destination => {
+      destinationSelection += `
+      <option value="${destination.destination}" id="${destination.id}">${destination.destination}</option>
+      `
+
+    })
+    tripChoice.insertAdjacentHTML('beforeend', destinationSelection);
+  },
+
+  showModal() {
+    const modal = document.querySelector('.modal')
+    modal.style.display = 'block';
+  },
+
+  hideModal() {
+    const modal = document.querySelector('.modal')
+    modal.style.display = 'none';
+  },
+
+  };
 
 export default domUpdates;

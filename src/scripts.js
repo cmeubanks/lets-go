@@ -11,46 +11,50 @@ import Trip from './Trip';
 import domUpdates from './domUpdates'
 let destinations, trip, traveler;
 
-let destinationsArray = [];
+let destinationsInfo, tripsInfo, travelerInfo
 
 const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
+const formBtn = document.querySelector('#formBtn');
+const closeWindow = document.querySelector('#closeBtn');
 
 
 window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
+formBtn.addEventListener('click', loadForm)
+closeWindow.addEventListener('click', closeForm)
+
 
 function loadData () {
-  getData('destinations')
-  .then(response => {
-    destinations = new Destinations(response.destinations)
-    destinationsArray.push(destinations)
-  })
-  getData('trips')
-    .then(response => {
-      trip = new Trip(destinations.destinations, response.trips)
-      // console.log("trip instance", trip)
+  Promise.all([getData('destinations'), getData('trips'), getData('travelers/2')])
+    .then(data => {
+      destinations = new Destinations(data[0].destinations)
+      trip = new Trip(data[0].destinations, data[1].trips)
+      traveler = new Traveler(data[2], trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2, "2021/01/09"), data[0].destinations)
+      showTrips("2021/01/09")
     })
-      getData('travelers/1')
-      .then(response => {
-         traveler = new Traveler(response, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinations.destinations)
-         console.log(traveler)
-         traveler.showPastTrips("2021/01/09");
-         traveler.showFutureTrips("2021/01/09");
-         traveler.showPresentTrips("2021/01/09");
-         // console.log("showPresentTrips", traveler.showPresentTrips("2021/01/09"))
-       })
 
-      // const userTrips = trip.getTravelersTrips(44)
-      // console.log(userTrips)
-      // const tripCostforYear = trip.travelerTotalSpentInYear(44, "2019/12/15")
-      // console.log(tripCostforYear)
 
+}
+
+function showTrips(date) {
+  traveler.showPastTrips(date);
+  traveler.showFutureTrips(date);
+  traveler.showPresentTrips(date);
 }
 
 function displayTrips(event) {
   // event.preventDefault()
   domUpdates.cardUpdates(traveler, event.target.id)
+}
+
+function loadForm() {
+  domUpdates.loadDropDownData(destinations);
+  domUpdates.showModal();
+}
+
+function closeForm() {
+  domUpdates.hideModal();
 }
 
 
