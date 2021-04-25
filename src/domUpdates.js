@@ -35,9 +35,9 @@ const domUpdates = {
 
   loadDropDownData(destinations) {
     const tripChoice = document.querySelector('#tripChoice');
-
+    console.log("domupdates", destinations);
     let destinationSelection = '';
-    destinations.forEach(destination => {
+    destinations.destinations.forEach(destination => {
       destinationSelection += `
       <option value="">--Please choose an option--</option>
       <option value="${destination.destination}" id="${destination.id}">${destination.destination}</option>
@@ -48,8 +48,14 @@ const domUpdates = {
   },
 
   showModal() {
-    document.querySelector()
-  };
+    const modal = document.querySelector('.modal')
+    modal.style.display = 'block';
+  },
+
+  hideModal() {
+    const modal = document.querySelector('.modal')
+    modal.style.display = 'none';
+  },
 
   };
 

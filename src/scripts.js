@@ -32,7 +32,10 @@ function loadData () {
   getData('travelers/1')
     .then(response => travelerInfo = response)
     .then(response => {
+      console.log("array holder", destinationsInfo)
       destinations = new Destinations(destinationsInfo.destinations)
+      console.log("destination class", destinations) })
+    .then(response => {
       trip = new Trip(destinationsInfo.destinations, tripsInfo.trips)
       traveler = new Traveler(travelerInfo, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinationsInfo.destinations)
       traveler.showPastTrips("2021/01/09");
@@ -49,7 +52,7 @@ function displayTrips(event) {
 
 function loadForm() {
   domUpdates.loadDropDownData(destinations);
-
+  domUpdates.showModal();
 }
 
 
