@@ -33,7 +33,7 @@ function loadData () {
     })
       getData('travelers/1')
       .then(response => {
-         traveler = new Traveler(response, trip.getTravelersTrips(1), trip.travelerTotalSpentInYear(1,"2021/01/09"), destinations.destinations)
+         traveler = new Traveler(response, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinations.destinations)
          console.log(traveler)
          traveler.showPastTrips("2021/01/09");
          traveler.showFutureTrips("2021/01/09");
@@ -49,6 +49,7 @@ function loadData () {
 }
 
 function displayTrips(event) {
+  // event.preventDefault()
   domUpdates.cardUpdates(traveler, event.target.id)
 }
 
