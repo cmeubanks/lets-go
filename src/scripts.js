@@ -11,7 +11,7 @@ import Trip from './Trip';
 import domUpdates from './domUpdates'
 let destinations, trip, traveler;
 
-let destinationsArray = [];
+let destinationsInfo, tripsInfo, travelerInfo
 
 const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
@@ -22,31 +22,20 @@ tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 
 function loadData () {
   getData('destinations')
-  .then(response => {
-    destinations = new Destinations(response.destinations)
-    destinationsArray.push(destinations)
-  })
+    .then(response => destinationsInfo = response)
   getData('trips')
+    .then(response => tripsInfo = response)
+  getData('travelers/1')
+    .then(response => travelerInfo = response)
     .then(response => {
-      trip = new Trip(destinations.destinations, response.trips)
-      // console.log("trip instance", trip)
+      trip = new Trip(destinationsInfo.destinations, tripsInfo.trips)
+      traveler = new Traveler(travelerInfo, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinationsInfo.destinations)
+      traveler.showPastTrips("2021/01/09");
+      traveler.showFutureTrips("2021/01/09");
+      traveler.showPresentTrips("2021/01/09");
     })
-      getData('travelers/1')
-      .then(response => {
-         traveler = new Traveler(response, trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2,"2021/01/09"), destinations.destinations)
-         console.log(traveler)
-         traveler.showPastTrips("2021/01/09");
-         traveler.showFutureTrips("2021/01/09");
-         traveler.showPresentTrips("2021/01/09");
-         // console.log("showPresentTrips", traveler.showPresentTrips("2021/01/09"))
-       })
+  }
 
-      // const userTrips = trip.getTravelersTrips(44)
-      // console.log(userTrips)
-      // const tripCostforYear = trip.travelerTotalSpentInYear(44, "2019/12/15")
-      // console.log(tripCostforYear)
-
-}
 
 function displayTrips(event) {
   // event.preventDefault()

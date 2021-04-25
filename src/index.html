@@ -7,7 +7,7 @@
     <meta name="description" content="Mod 2 - Final Project - Travel Tracker">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Let's Go</title>
-    <link type="text/css" href="../css/base.css">
+    <!-- <link type="text/css" href="../css/base.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -17,7 +17,15 @@
       <h2>Today's Date</h2>
       <h2 id="spending">Total Spent this year: $$</h2>
       <button class="logout small-btn">Log Out</button>
+      <button class ="form-btn">Book A New Trip</button>
     </header>
+    <div class='modal'>
+      <h3>Book a Trip</h3>
+      <input type='date' id ='start' name='trip-start' value='2020-05-03' min='2020-08-01' max ='2021-12-31'>
+      <label for="duration">How long would you like to stay: </label>
+      <input type="number" name="duration" id="duration" required>
+      <label for="groupCount">How many people in your group: </label>
+      <input type="number" name="groupCount" id="groupCount" required>
     <section class="trips">
        <div class="trip-btn-container">
          <button class="trip-btn" id="upcoming">Upcoming Trips</button>
@@ -29,13 +37,6 @@
        <div class="card-container">
        </div>
      </section>
-
-    <h1>Webpack Starter Kit</h1>
-    <p id="travelerData"></p>
-    <p id="tripData"></p>
-    <p id="destinations"></p>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
