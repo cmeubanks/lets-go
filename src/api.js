@@ -9,7 +9,7 @@ export function getData(endpoint) {
 }
 
 export function sendData(url, data) {
-  fetch(url, {
+  return fetch(url, {
     method:'POST',
     body: JSON.stringify(data),
     headers: {
@@ -17,9 +17,7 @@ export function sendData(url, data) {
     }
   })
   .then(response => {
-    console.log("api response", response)
     checkStatus(response)
-    console.log(response.json())
     return response.json()
   })
   .catch(err => console.log(err))

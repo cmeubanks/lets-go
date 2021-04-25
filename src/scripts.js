@@ -113,8 +113,9 @@ function requestNewTrip() {
 
     sendData('http://localhost:3001/api/v1/trips', travelerRequest)
     .then(response => {
-      console.log(response)
-      // traveler.pendingTrips.push(response)
+      console.log(response.message)
+      traveler.pending.push(response.newTrip)
+      console.log(traveler)
       // console.log(traveler.pendingTrips)
       //domUpdates - displayPendingTrips
     })
