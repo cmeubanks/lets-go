@@ -15,10 +15,13 @@ let destinationsInfo, tripsInfo, travelerInfo
 
 const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
+const formBtn = document.querySelector('#formBtn');
+const closeWindow = document.querySelector('#close-btn');
 
 
 window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
+formBtn.addEventListener('click', loadForm)
 
 
 function loadData () {
@@ -42,6 +45,11 @@ function loadData () {
 function displayTrips(event) {
   // event.preventDefault()
   domUpdates.cardUpdates(traveler, event.target.id)
+}
+
+function loadForm() {
+  domUpdates.loadDropDownData(destinations);
+
 }
 
 

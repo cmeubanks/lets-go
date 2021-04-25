@@ -33,7 +33,7 @@ const domUpdates = {
   },
 
 
-  loadDropDownData() {
+  loadDropDownData(destinations) {
     const tripChoice = document.querySelector('#tripChoice');
 
     let destinationSelection = '';
@@ -43,11 +43,14 @@ const domUpdates = {
       <option value="${destination.destination}" id="${destination.id}">${destination.destination}</option>
       `
 
-      tripChoice.innerHTML = destinationSelection;
     })
+    tripChoice.innerHTML = destinationSelection;
+  },
 
-  }
+  showModal() {
+    document.querySelector()
+  };
 
-  }
+  };
 
 export default domUpdates;
