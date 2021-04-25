@@ -76,7 +76,7 @@ function calculateNewTripCost(){
   const agentFee = tripCost * 0.10
   const tripTotalCost = tripCost + agentFee
 
-  return tripTotalCost;
+  domUpdates.displayNewTripCost(tripTotalCost);
 }
 
 function calculateTrip(){

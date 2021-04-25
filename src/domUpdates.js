@@ -62,9 +62,6 @@ const domUpdates = {
     const groupVal = document.querySelector('#groupCount').value;
     const destinationVal = document.querySelector('#tripChoice').value;
 
-    const destinationID = document.querySelector('#tripChoice').id
-    console.log(destinationID)
-
     const postObj = {
       startDate: startVal,
       duration: durationVal,
@@ -73,6 +70,12 @@ const domUpdates = {
     }
 
     return postObj
+  },
+
+  displayNewTripCost(sum) {
+    const tripTotal = document.querySelector('#tripTotal')
+
+    tripTotal.innerText = sum;
   }
 
   };
