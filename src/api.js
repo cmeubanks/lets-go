@@ -9,7 +9,7 @@ export function getData(endpoint) {
 }
 
 export function sendData(url, data) {
-  fetch(url, {
+  return fetch(url, {
     method:'POST',
     body: JSON.stringify(data),
     headers: {
