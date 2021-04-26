@@ -1,0 +1,13 @@
+.header {
+  @include dimensions(auto, 80vw);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+h1{
+  font-family: $title-font;
+  color: $color1;
+  font-size: 4em;
+}

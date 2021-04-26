@@ -6,10 +6,12 @@
 @import 'modal';
 @import 'carddisplay';
 @import 'login';
+@import 'header';
 
 
 html {
   @include dimensions(100vh, 100vw);
+  box-sizing: border-box;
 }
 
 body {
@@ -18,7 +20,14 @@ body {
   background: $primary-background no-repeat;
   background-size: cover;
   background-position: center;
+  font-family: $main-font;
+}
 
+main {
+  @include dimensions(90vh, 90vw);
+  @include flexColumn;
+  @include center-section;
+  box-sizing: border-box;
 }
 
 // svg {
