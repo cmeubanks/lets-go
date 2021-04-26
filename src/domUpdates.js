@@ -75,6 +75,25 @@ const domUpdates = {
   displayNewTripCost(sum) {
     const tripTotal = document.querySelector('#tripTotal')
     tripTotal.innerText = sum;
+  },
+
+  checkLoginFields() {
+    event.preventDefault()
+    const un = document.querySelector('#usernameField')
+    const pw = document.querySelector('#passwordField')
+    const errorField = document.querySelector('#invalidLogin')
+
+    if(!un.value || !pw.value){
+      return errorField.innerText = 'Username or Password is Incorrect'
+    }
+  },
+
+  removeLoginError() {
+    const errorField = document.querySelector('#invalidLogin')
+
+    if(errorField) {
+    return errorField.innerText = ''
+    }
   }
 
   };

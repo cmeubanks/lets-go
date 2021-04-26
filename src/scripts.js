@@ -21,6 +21,8 @@ const formBtn = document.querySelector('#formBtn');
 const closeWindow = document.querySelector('#closeBtn');
 const tripEstimate = document.querySelector('#tripEst')
 const submitRequest = document.querySelector('#tripRqst')
+const login = document.querySelector('#loginSubmit')
+const loginField = document.querySelectorAll('.login-form-field')
 
 
 window.addEventListener('load', loadData)
@@ -29,7 +31,20 @@ formBtn.addEventListener('click', loadForm)
 closeWindow.addEventListener('click', closeForm)
 tripEstimate.addEventListener('click', calculateNewTripCost)
 submitRequest.addEventListener('click', requestNewTrip)
+login.addEventListener('click', verifyLogin)
+loginField.forEach(field => field.addEventListener('keydown', removeError))
 
+function removeError() {
+  domUpdates.removeLoginError()
+}
+
+function verifyLogin() {
+  domUpdates.checkLoginFields()
+  //check if inputfields are empty
+  //check that username and password is correct format
+  //if it's the correct format use .split to get is from end of username
+  //call loadData function(with new id parameter) to load homepage & unhide/hid appropriate items
+}
 
 function loadData () {
   Promise.all([getData('destinations'), getData('trips'), getData('travelers/2')])
