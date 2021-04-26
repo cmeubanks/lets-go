@@ -66,6 +66,14 @@ const domUpdates = {
     login.classList.add('hidden')
   },
 
+  greetUser(name, money) {
+    const greeting = document.querySelector('#greeting')
+    const moneySpent = document.querySelector('#spending')
+
+    greeting.innerText = `Welcome ${name}`
+    moneySpent.innerText = `Total Spent this year: $${money}.00`
+  },
+
   getFormValues(){
     const startVal = document.querySelector('#start').value;
     const durationVal = document.querySelector('#duration').value;
@@ -127,7 +135,7 @@ const domUpdates = {
       pw.value = '';
       return errorField.innerText = 'Username not found, please try again'
     } else {
-      console.log(userID[1])
+
       return userID[1]
     }
   }

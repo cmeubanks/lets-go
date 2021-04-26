@@ -41,12 +41,10 @@ function removeError() {
 function verifyLogin() {
   domUpdates.checkLoginFields()
   const userID = domUpdates.checkCredentials()
-  console.log('hi')
-  console.log(userID)
+
   if(userID){
     const id = parseInt(userID)
     loadData(id)
-    // domUpdates.showHome()
   }
 
   //check if inputfields are empty
@@ -63,6 +61,7 @@ function loadData(id) {
       trip = new Trip(data[0].destinations, data[1].trips)
       traveler = new Traveler(data[2], trip.getTravelersTrips(id), trip.travelerTotalSpentInYear(id, "2021/01/09"), data[0].destinations)
       showTrips("2021/01/09")
+      domUpdates.greetUser(traveler.name, traveler.totalCostofTrips)
       domUpdates.showHome()
     })
 
