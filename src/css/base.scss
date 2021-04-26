@@ -5,17 +5,25 @@
 @import 'reset';
 @import 'modal';
 @import 'carddisplay';
+@import 'login';
 
-$primary-background: white;
-;
+
 html {
   @include dimensions(100vh, 100vw);
 }
 
 body {
-  @include dimensions(auto, 100vw)
-  background: $primary-background;
+  @include dimensions(100vh, 100vw);
+  @include center-section();
+  background: $primary-background no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
+
+// svg {
+//   display: none;
+// }
 
 .hidden {
   display: none;
