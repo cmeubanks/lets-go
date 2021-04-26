@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
   <body>
-    <section class='loginPage'>
+    <section class='loginPage' id='loginPage'>
       <p class='invalid-login' id='invalidLogin'></p>
       <form id="login-form">
         <input type="text" name="username" id="usernameField" class="login-form-field" placeholder="Username">
@@ -20,7 +20,7 @@
       </form>
       <!-- <button type="button" name="login-btn" class='login-btn' id='loginBtn'>Login</button> -->
     </section>
-    <header class='hidden'>
+    <header class='hidden' id='header'>
       <h1>Let's Go</h1>
       <h2 class="greeting">Welcome, User</h2>
       <h2>Today's Date</h2>
@@ -28,7 +28,7 @@
       <button class="logout small-btn">Log Out</button>
       <button class ="form-btn" id='formBtn'>Book A New Trip</button>
     </header>
-    <div class='modal hidden'>
+    <div class='modal'>
       <h3>Book a Trip</h3>
       <input type='date' id ='start' name='trip-start' value='2020-05-03' min='2020-08-01' max ='2021-12-31'>
       <label for='duration'>How long would you like to stay: </label>
@@ -44,7 +44,7 @@
       <button type="button" name='trip-Rqst' class='trip-Rqst' id='tripRqst'>Submit Trip Request</button>
       <button type="button" name="close-btn" class="close-btn" id="closeBtn" >Close Window</button>
     </div>
-    <section class="trips hidden">
+    <section class="trips hidden" id='trips'>
        <div class="trip-btn-container">
          <button class="trip-btn" id="upcoming">Upcoming Trips</button>
          <button class="trip-btn" id="present">Current Trips</button>

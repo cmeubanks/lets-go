@@ -40,6 +40,7 @@ function removeError() {
 
 function verifyLogin() {
   domUpdates.checkLoginFields()
+  domUpdates.checkCredentials()
 
   //check if inputfields are empty
   //check that username and password is correct format

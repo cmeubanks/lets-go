@@ -56,6 +56,16 @@ const domUpdates = {
     modal.style.display = 'none';
   },
 
+  showHome() {
+    const header = document.querySelector('#header')
+    const trips = document.querySelector('#trips')
+    const login = document.querySelector('#loginPage')
+
+    header.classList.remove('hidden')
+    trips.classList.remove('hidden')
+    login.classList.add('hidden')
+  },
+
   getFormValues(){
     const startVal = document.querySelector('#start').value;
     const durationVal = document.querySelector('#duration').value;
@@ -101,11 +111,23 @@ const domUpdates = {
   checkCredentials() {
     const un = document.querySelector('#usernameField')
     const pw = document.querySelector('#passwordField')
+    const errorField = document.querySelector('#invalidLogin')
+    let userID
 
-    if(un.value.includes('traveler') && pw.value === 'travel2020'){
-      const userID = un.value.split('traveler')
-      console.log(userID)
+    if(un.value.includes('traveler') && un.value.length <= 10 && pw.value === 'travel2020'){
+      userID = un.value.split('traveler')
+      console.log(userID[0])
+    } else {
+      return errorField.innerText = 'Username or Password is Incorrect'
     }
+
+    if(userID[0] > 50){
+      return errorField.innerText = 'Username not found, please try again'
+    } else {
+      this.showHome()
+    }
+
+
     }
   };
 
