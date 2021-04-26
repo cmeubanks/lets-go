@@ -116,23 +116,21 @@ const domUpdates = {
 
     if(un.value.includes('traveler') && (un.value.length <= 10 && un.value.length > 8) && pw.value === 'travel2020'){
       userID = un.value.split('traveler')
-      console.log(userID[0])
     } else {
       un.value = '';
       pw.value = '';
       return errorField.innerText = 'Username or Password is Incorrect'
     }
 
-    if(userID[0] > 50){
+    if(userID[1] > 50){
       un.value = '';
       pw.value = '';
       return errorField.innerText = 'Username not found, please try again'
     } else {
-      this.showHome()
+      console.log(userID[1])
+      return userID[1]
     }
-
-
-    }
-  };
+  }
+};
 
 export default domUpdates;

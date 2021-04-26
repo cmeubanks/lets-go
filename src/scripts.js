@@ -25,7 +25,7 @@ const login = document.querySelector('#loginSubmit')
 const loginField = document.querySelectorAll('.login-form-field')
 
 
-window.addEventListener('load', loadData)
+// window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 formBtn.addEventListener('click', loadForm)
 closeWindow.addEventListener('click', closeForm)
@@ -40,7 +40,14 @@ function removeError() {
 
 function verifyLogin() {
   domUpdates.checkLoginFields()
-  domUpdates.checkCredentials()
+  const userID = domUpdates.checkCredentials()
+  console.log('hi')
+  console.log(userID)
+  if(userID){
+    const id = parseInt(userID)
+    loadData(id)
+    // domUpdates.showHome()
+  }
 
   //check if inputfields are empty
   //check that username and password is correct format
@@ -48,13 +55,15 @@ function verifyLogin() {
   //call loadData function(with new id parameter) to load homepage & unhide/hid appropriate items
 }
 
-function loadData () {
-  Promise.all([getData('destinations'), getData('trips'), getData('travelers/2')])
+function loadData(id) {
+
+  Promise.all([getData('destinations'), getData('trips'), getData(`travelers/${id}`)])
     .then(data => {
       destinations = new Destinations(data[0].destinations)
       trip = new Trip(data[0].destinations, data[1].trips)
-      traveler = new Traveler(data[2], trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2, "2021/01/09"), data[0].destinations)
+      traveler = new Traveler(data[2], trip.getTravelersTrips(id), trip.travelerTotalSpentInYear(id, "2021/01/09"), data[0].destinations)
       showTrips("2021/01/09")
+      domUpdates.showHome()
     })
 
 
