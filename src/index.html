@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8">
     <link rel="shortcut icon" href="#">
     <meta name="authors" content="Caroline Eubanks">
     <meta name="description" content="Mod 2 - Final Project - Travel Tracker">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <title>Let's Go</title>
     <!-- <link type="text/css" href="../css/base.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
         <input type="password" name="password" id="passwordField" class="login-form-field" placeholder="Password">
         <input type="submit" value="Login" id="loginSubmit">
       </form>
-      <!-- <button type="button" name="login-btn" class='login-btn' id='loginBtn'>Login</button> -->
     </section>
     <header class='hidden' id='header'>
       <h1>Let's Go</h1>
@@ -37,7 +36,7 @@
       <input type='number' name="groupCount" id="groupCount" required>
       <label for='destination-choice'>Where would you like to go:</label>
       <select name="destination-choice" id="tripChoice">
-        <option value="">--Please choose an option--</option>
+        <option value="">Please choose an option</option>
       </select>
       <p class='trip-Total' id='tripTotal'></p>
       <button type='button' name='trip-est' class='trip-Est' id='tripEst'>Show Me Trip Cost</button>
@@ -55,7 +54,5 @@
        <div class="card-container">
        </div>
      </section>
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

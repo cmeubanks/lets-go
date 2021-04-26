@@ -13,12 +13,17 @@ html {
 }
 
 body {
-  @include dimensions(auto, 100vw);
+  @include dimensions(100vh, 100vw);
+  @include center-section();
   background: $primary-background no-repeat;
   background-size: cover;
   background-position: center;
 
 }
+
+// svg {
+//   display: none;
+// }
 
 .hidden {
   display: none;
