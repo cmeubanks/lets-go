@@ -47,6 +47,7 @@ function showTrips(date) {
   traveler.showPastTrips(date);
   traveler.showFutureTrips(date);
   traveler.showPresentTrips(date);
+  //traveler.showPendingTrips(date);
 }
 
 function displayTrips(event) {
@@ -114,8 +115,14 @@ function requestNewTrip() {
     sendData('http://localhost:3001/api/v1/trips', travelerRequest)
     .then(response => {
       console.log(response.message)
+      const destObj = destinations.destinations.find(place => {
+        if(response.newTrip.destinationID === place.id){
+          return place
+        }
+      })
+      response.newTrip.destination = destObj
       traveler.pending.push(response.newTrip)
-      console.log(traveler)
+      // console.log(traveler)
       // console.log(traveler.pendingTrips)
       //domUpdates - displayPendingTrips
     })
