@@ -56,6 +56,24 @@ const domUpdates = {
     modal.style.display = 'none';
   },
 
+  showHome() {
+    const header = document.querySelector('#header')
+    const trips = document.querySelector('#trips')
+    const login = document.querySelector('#loginPage')
+
+    header.classList.remove('hidden')
+    trips.classList.remove('hidden')
+    login.classList.add('hidden')
+  },
+
+  greetUser(name, money) {
+    const greeting = document.querySelector('#greeting')
+    const moneySpent = document.querySelector('#spending')
+
+    greeting.innerText = `Welcome ${name}`
+    moneySpent.innerText = `Total Spent this year: $${money}.00`
+  },
+
   getFormValues(){
     const startVal = document.querySelector('#start').value;
     const durationVal = document.querySelector('#duration').value;
@@ -75,8 +93,52 @@ const domUpdates = {
   displayNewTripCost(sum) {
     const tripTotal = document.querySelector('#tripTotal')
     tripTotal.innerText = sum;
-  }
+  },
 
-  };
+  checkLoginFields() {
+    event.preventDefault()
+    const un = document.querySelector('#usernameField')
+    const pw = document.querySelector('#passwordField')
+    const errorField = document.querySelector('#invalidLogin')
+
+    if(!un.value || !pw.value){
+      return errorField.innerText = 'Username or Password is Incorrect'
+    }
+
+    // if(un.value.includes('traveler') && pw.value === 'travel2020')
+  },
+
+  removeLoginError() {
+    const errorField = document.querySelector('#invalidLogin')
+
+    if(errorField) {
+    return errorField.innerText = ''
+    }
+  },
+
+  checkCredentials() {
+    const un = document.querySelector('#usernameField')
+    const pw = document.querySelector('#passwordField')
+    const errorField = document.querySelector('#invalidLogin')
+    let userID
+
+    if(un.value.includes('traveler') && (un.value.length <= 10 && un.value.length > 8) && pw.value === 'travel2020'){
+      userID = un.value.split('traveler')
+    } else {
+      un.value = '';
+      pw.value = '';
+      return errorField.innerText = 'Username or Password is Incorrect'
+    }
+
+    if(userID[1] > 50){
+      un.value = '';
+      pw.value = '';
+      return errorField.innerText = 'Username not found, please try again'
+    } else {
+
+      return userID[1]
+    }
+  }
+};
 
 export default domUpdates;

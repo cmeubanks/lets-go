@@ -21,23 +21,48 @@ const formBtn = document.querySelector('#formBtn');
 const closeWindow = document.querySelector('#closeBtn');
 const tripEstimate = document.querySelector('#tripEst')
 const submitRequest = document.querySelector('#tripRqst')
+const login = document.querySelector('#loginSubmit')
+const loginField = document.querySelectorAll('.login-form-field')
 
 
-window.addEventListener('load', loadData)
+// window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 formBtn.addEventListener('click', loadForm)
 closeWindow.addEventListener('click', closeForm)
 tripEstimate.addEventListener('click', calculateNewTripCost)
 submitRequest.addEventListener('click', requestNewTrip)
+login.addEventListener('click', verifyLogin)
+loginField.forEach(field => field.addEventListener('keydown', removeError))
 
+function removeError() {
+  domUpdates.removeLoginError()
+}
 
-function loadData () {
-  Promise.all([getData('destinations'), getData('trips'), getData('travelers/2')])
+function verifyLogin() {
+  domUpdates.checkLoginFields()
+  const userID = domUpdates.checkCredentials()
+
+  if(userID){
+    const id = parseInt(userID)
+    loadData(id)
+  }
+
+  //check if inputfields are empty
+  //check that username and password is correct format
+  //if it's the correct format use .split to get is from end of username
+  //call loadData function(with new id parameter) to load homepage & unhide/hid appropriate items
+}
+
+function loadData(id) {
+
+  Promise.all([getData('destinations'), getData('trips'), getData(`travelers/${id}`)])
     .then(data => {
       destinations = new Destinations(data[0].destinations)
       trip = new Trip(data[0].destinations, data[1].trips)
-      traveler = new Traveler(data[2], trip.getTravelersTrips(2), trip.travelerTotalSpentInYear(2, "2021/01/09"), data[0].destinations)
+      traveler = new Traveler(data[2], trip.getTravelersTrips(id), trip.travelerTotalSpentInYear(id, "2021/01/09"), data[0].destinations)
       showTrips("2021/01/09")
+      domUpdates.greetUser(traveler.name, traveler.totalCostofTrips)
+      domUpdates.showHome()
     })
 
 
