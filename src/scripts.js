@@ -40,6 +40,7 @@ function removeError() {
 
 function verifyLogin() {
   domUpdates.checkLoginFields()
+
   //check if inputfields are empty
   //check that username and password is correct format
   //if it's the correct format use .split to get is from end of username

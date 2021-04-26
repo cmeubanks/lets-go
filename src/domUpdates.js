@@ -86,6 +86,8 @@ const domUpdates = {
     if(!un.value || !pw.value){
       return errorField.innerText = 'Username or Password is Incorrect'
     }
+
+    // if(un.value.includes('traveler') && pw.value === 'travel2020')
   },
 
   removeLoginError() {
@@ -94,8 +96,17 @@ const domUpdates = {
     if(errorField) {
     return errorField.innerText = ''
     }
-  }
+  },
 
+  checkCredentials() {
+    const un = document.querySelector('#usernameField')
+    const pw = document.querySelector('#passwordField')
+
+    if(un.value.includes('traveler') && pw.value === 'travel2020'){
+      const userID = un.value.split('traveler')
+      console.log(userID)
+    }
+    }
   };
 
 export default domUpdates;
