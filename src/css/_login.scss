@@ -1,0 +1,14 @@
+.loginPage {
+  @include section-background();
+  @include dimensions(50vh, 50vw);
+  @include center-section;
+  box-sizing: border-box;
+}
+
+.login-form {
+  @include flexColumn();
+}
+
+.login-form-field {
+  @include dimensions(auto, 20vw);
+}

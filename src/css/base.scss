@@ -5,6 +5,7 @@
 @import 'reset';
 @import 'modal';
 @import 'carddisplay';
+@import 'login';
 
 
 html {
@@ -12,7 +13,7 @@ html {
 }
 
 body {
-  @include dimensions(auto, 100vw)
+  @include dimensions(auto, 100vw);
   background: $primary-background no-repeat;
   background-size: cover;
   background-position: center;
