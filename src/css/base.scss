@@ -16,3 +16,7 @@ body {
   @include dimensions(auto, 100vw)
   background: $primary-background;
 }
+
+.hidden {
+  display: none;
+}
