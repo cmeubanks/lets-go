@@ -114,14 +114,18 @@ const domUpdates = {
     const errorField = document.querySelector('#invalidLogin')
     let userID
 
-    if(un.value.includes('traveler') && un.value.length <= 10 && pw.value === 'travel2020'){
+    if(un.value.includes('traveler') && (un.value.length <= 10 && un.value.length > 8) && pw.value === 'travel2020'){
       userID = un.value.split('traveler')
       console.log(userID[0])
     } else {
+      un.value = '';
+      pw.value = '';
       return errorField.innerText = 'Username or Password is Incorrect'
     }
 
     if(userID[0] > 50){
+      un.value = '';
+      pw.value = '';
       return errorField.innerText = 'Username not found, please try again'
     } else {
       this.showHome()
