@@ -6,15 +6,17 @@
 @import 'modal';
 @import 'carddisplay';
 
-$primary-background: white;
-;
+
 html {
   @include dimensions(100vh, 100vw);
 }
 
 body {
   @include dimensions(auto, 100vw)
-  background: $primary-background;
+  background: $primary-background no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
 
 .hidden {

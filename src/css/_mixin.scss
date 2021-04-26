@@ -2,3 +2,13 @@
   height: $height;
   width: $width;
 }
+
+@mixin flexColumn() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexColumn() {
+  display: flex;
+  flex-direction: column;
+}
