@@ -9,13 +9,12 @@ describe('Traveler', () => {
   let travelerData, tripData, trip, traveler
 
   beforeEach(() => {
+    
     travelerData = {'id': 1, 'name': 'Ham Leadbeater', 'travelerType': 'relaxer'},
 
     trip = new Trip(destinationTestData.destinations, tripTestData.trips);
 
     traveler = new Traveler(travelerData, trip.getTravelersTrips(1), trip.travelerTotalSpentInYear(1,'2020/02/09'), destinationTestData.destinations)
-
-    // console.log(traveler)
   })
 
   it('should be a function', () => {
@@ -293,5 +292,4 @@ describe('Traveler', () => {
        },
       ]);
   })
-
 })

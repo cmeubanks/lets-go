@@ -10,7 +10,7 @@ describe('Trip', () => {
   beforeEach(() => {
 
       trip = new Trip(destinationTestData.destinations, tripTestData.trips);
-      // console.log(trip)
+
   })
 
   it('should be a function', () => {
@@ -188,5 +188,5 @@ describe('Trip', () => {
 
     const moneySpent = trip.travelerTotalSpentInYear(1, '2020/02/09')
    expect(moneySpent).to.equal(3740)
- })
-})
+ });
+});
