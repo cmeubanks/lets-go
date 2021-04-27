@@ -6,11 +6,13 @@
 }
 
 .card-container{
-@include dimensions(50vh, auto);
+@include dimensions(50vh, 70vw);
+overflow-y: scroll;
 }
 
 .trip-cards {
-  @include dimensions(40vh, 40vw);
+  @include dimensions(auto, 80%);
+  margin-top: 3%;
   box-sizing: border-box;
 }
 
