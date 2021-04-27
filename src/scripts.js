@@ -144,7 +144,9 @@ function requestNewTrip() {
 
     sendData('http://localhost:3001/api/v1/trips', travelerRequest)
     .then(response => {
-      console.log(response.message)
+      // console.log(response.message)
+      const messageSplit = response.message.split(' ')
+      domUpdates.displayPostConfirmationNumber(parseInt(messageSplit[3]))
       const destObj = destinations.destinations.find(place => {
         if(response.newTrip.destinationID === place.id){
           return place

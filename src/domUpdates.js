@@ -80,9 +80,13 @@ const domUpdates = {
   greetUser(name, money) {
     const greeting = document.querySelector('#greeting')
     const moneySpent = document.querySelector('#spending')
+    let formatter = new Intl.NumberFormat('en-US', {
+      style:'currency',
+      currency: 'USD'
+    })
 
     greeting.innerText = `Welcome ${name}`
-    moneySpent.innerText = `Total Spent this year: $${money}.00`
+    moneySpent.innerText = `Total Spent this year: ${formatter.format(money)}`
   },
 
   getFormValues(){
@@ -134,6 +138,12 @@ const domUpdates = {
     })
 
     tripTotal.innerText = `Trip Cost: ${formatter.format(sum)}`;
+  },
+
+  displayPostConfirmationNumber(num) {
+    const tripConfirmation = document.querySelector('#tripTotal')
+
+    tripConfirmation.innerText = `Confirmation Number:${num}. Our agency is processing your request`
   },
 
   removeLoginError() {
