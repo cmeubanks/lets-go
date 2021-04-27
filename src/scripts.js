@@ -76,7 +76,7 @@ function showTrips(date) {
   traveler.showPastTrips(date);
   traveler.showFutureTrips(date);
   traveler.showPresentTrips(date);
-  //traveler.showPendingTrips(date);
+  traveler.showPendingTrips(date);
 }
 
 function displayTrips(event) {

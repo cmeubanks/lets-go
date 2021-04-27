@@ -46,6 +46,11 @@ class Traveler {
     result.forEach(trip => this.present.push(trip))
   }
 
+  showPendingTrips(todaysDate) {
+    const pendingTrips = this.allTrips.filter(trip => trip.status === 'pending')
+    const result = pendingTrips.map(trip => ({...trip, 'destination': this.destinations.filter(place => trip.destinationID === place.id)[0]}))
+    result.forEach(trip => this.pending.push(trip))
+  }
 
 
 }
