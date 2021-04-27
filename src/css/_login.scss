@@ -10,6 +10,10 @@
   @include flexColumn();
 }
 
+.login-title {
+  margin-bottom: 10%;
+}
+
 .login-form-field {
   @include dimensions(auto, 20vw);
 }

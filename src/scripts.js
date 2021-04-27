@@ -41,7 +41,6 @@ function checkLoginFields() {
   const id = domUpdates.checkCredentials()
 
   if(login.disabled === false){
-    console.log(id)
   return id
 }
   // domUpdates.removeLoginError()
@@ -101,14 +100,12 @@ function closeForm() {
 
 function calculateNewTripCost(){
   const postObj = domUpdates.getFormValues()
-  console.log(postObj)
 
   const locationObj = destinations.destinations.find(place =>{
     if(postObj.destination === place.destination){
       return place.id
     }
   })
-  // console.log("locationObj",locationObj)
 
   const flightCost = locationObj.estimatedFlightCostPerPerson * postObj.groupCount
   const lodgingCost = locationObj.estimatedLodgingCostPerDay * postObj.duration
@@ -145,8 +142,6 @@ function requestNewTrip() {
      suggestedActivities: []
     }
 
-    console.log('post Data', travelerRequest)
-
     sendData('http://localhost:3001/api/v1/trips', travelerRequest)
     .then(response => {
       console.log(response.message)
@@ -157,9 +152,6 @@ function requestNewTrip() {
       })
       response.newTrip.destination = destObj
       traveler.pending.push(response.newTrip)
-      // console.log(traveler)
-      // console.log(traveler.pendingTrips)
-      //domUpdates - displayPendingTrips
     })
 }
 

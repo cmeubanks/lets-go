@@ -1,12 +1,9 @@
 const domUpdates = {
 
   cardUpdates(traveler, buttonId){
-    console.log("cardUpdates - traveler", traveler)
-    console.log("cardUpdates - btn", buttonId)
     const tripCards = document.querySelector('.card-container');
     const cardHeader = document.querySelector('#trip-type-section')
     cardHeader.innerHTML = `${buttonId} trips`
-    console.log(traveler[buttonId])
     tripCards.innerHTML = '';
     let tripInfo = '';
     if (traveler[buttonId].length > 0) {
