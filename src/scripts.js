@@ -1,6 +1,4 @@
 import {getData} from './api'
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-
 
 import './images/turing-logo.png'
 
@@ -54,11 +52,6 @@ function verifyLogin() {
     const id = parseInt(userID)
     loadData(id)
   }
-
-  //check if inputfields are empty
-  //check that username and password is correct format
-  //if it's the correct format use .split to get is from end of username
-  //call loadData function(with new id parameter) to load homepage & unhide/hid appropriate items
 }
 
 function loadData(id) {
