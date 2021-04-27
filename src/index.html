@@ -18,17 +18,17 @@
     <section class='error-container hidden' id='errorContainer' aria-errormessage='errorText'>
       <p class='error-text' id='errorText'></p>
     </section>
-    <!-- <section class='loginPage' id='loginPage'>
+    <section class='loginPage' id='loginPage'>
       <h1 class='login-title'>Let's Go</h1>
       <p class='invalid-login' id='invalidLogin'>Please enter your username and password</p>
       <form id="login-form" class="login-form">
-        <input type="text" name="username" id="usernameField" class="login-form-field" placeholder="Username" minlength='9' maxlength='10' required>
-        <input type="password" name="password" id="passwordField" class="login-form-field" placeholder="Password" minlength='10' maxlength='10' required>
+        <input type="text" name="username" id="usernameField" class="login-form-field" placeholder="Username" minlength='9' maxlength='10' aria-required='true' required>
+        <input type="password" name="password" id="passwordField" class="login-form-field" placeholder="Password" minlength='10' maxlength='10' aria-required='true' required>
         <input type="submit" value="Login" id="loginSubmit" disabled>
       </form>
-    </section> -->
-    <main class="" id="main">
-      <header class='header' id='header'>
+    </section>
+    <main class="hidden" id="main">
+      <header class='header hidden' id='header'>
         <h1>Let's Go</h1>
         <div class='greeting-container'>
           <h2 class="greeting" id='greeting'>Welcome, User</h2>
@@ -41,13 +41,13 @@
       <div class='modal' aria-label='modal to display Request new Trip Form' role='form'>
         <div class='modal-content' aria-lable='Request New Trip form' role='form' id='modalContent'>
           <h3>Book a Trip</h3>
-          <input type='date' id ='start' name='trip-start' value='2020-08-01' min='2020-08-01' max ='2021-12-31' required>
+          <input type='date' id ='start' name='trip-start' value='2020-08-01' min='2020-08-01' max ='2021-12-31' aria-required='true' required>
           <label for='duration'>How long would you like to stay: </label>
-          <input type='number' name="duration" id="duration" min='1' max='99' minlength='1' required>
+          <input type='number' name="duration" id="duration" min='1' max='99' minlength='1' aria-required='true' required>
           <label for='groupCount'>How many people in your group: </label>
-          <input type='number' name="groupCount" id="groupCount" min='1' max='99' minlength='1' required>
+          <input type='number' name="groupCount" id="groupCount" min='1' max='99' minlength='1' aria-required='true' required>
           <label for='destination-choice'>Where would you like to go:</label>
-          <select name="destination-choice" id="tripChoice" class="trip-choice" required>
+          <select name="destination-choice" id="tripChoice" class="trip-choice" aria-required='true' required>
             <option value="tripChoice" class="trip-choice">Select Location</option>
           </select>
           <p class='trip-Total' id='tripTotal'></p>
@@ -56,7 +56,7 @@
           <button type="button" name="close-btn" class="close-btn" id="closeBtn" >Close Window</button>
         </div>
       </div>
-      <section class="trips" id='trips'>
+      <section class="trips hidden" id='trips'>
          <div class="trip-btn-container">
            <button class="trip-btn" id="future">Upcoming Trips</button>
            <button class="trip-btn" id="present">Current Trips</button>
