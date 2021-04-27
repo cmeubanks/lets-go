@@ -32,13 +32,16 @@ closeWindow.addEventListener('click', closeForm)
 tripEstimate.addEventListener('click', calculateNewTripCost)
 submitRequest.addEventListener('click', requestNewTrip)
 login.addEventListener('click', verifyLogin)
-loginField.forEach(field => field.addEventListener('keydown', removeError))
+loginField.forEach(field => field.addEventListener('keyup', checkLoginFields))
 
-function removeError() {
-  domUpdates.removeLoginError()
+function checkLoginFields() {
+  // event.preventDefault()
+  domUpdates.checkCredentials()
+  // domUpdates.removeLoginError()
 }
 
-function verifyLogin() {
+function verifyLogin(event) {
+  // event.preventDefault()
   domUpdates.checkLoginFields()
   const userID = domUpdates.checkCredentials()
 

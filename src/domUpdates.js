@@ -120,26 +120,57 @@ const domUpdates = {
   checkCredentials() {
     const un = document.querySelector('#usernameField')
     const pw = document.querySelector('#passwordField')
+    const loginBtn = document.querySelector('#loginSubmit')
     const errorField = document.querySelector('#invalidLogin')
-    let userID
+    let userArr, id
 
-    if(un.value.includes('traveler') && (un.value.length <= 10 && un.value.length > 8) && pw.value === 'travel2020'){
-      userID = un.value.split('traveler')
+    if(un.checkValidity() && pw.checkValidity() && un.value.includes('traveler') && pw.value === 'travel2020'){
+      userArr = un.value.split('traveler');
+      id = userArr[1];
     } else {
-      un.value = '';
-      pw.value = '';
-      return errorField.innerText = 'Username or Password is Incorrect'
+      return false
     }
 
-    if(userID[1] > 50){
-      un.value = '';
-      pw.value = '';
-      return errorField.innerText = 'Username not found, please try again'
+    if(id > 0 && id <= 50) {
+      loginBtn.disabled = false;
     } else {
-
-      return userID[1]
+      errorField.style.color = 'red';
+      errorField.innerText = 'Username not found'
+        setTimeout(() => {
+          errorField.style.color = 'black';
+          errorField.innerText = 'Enter Username and Password'
+        }, 3000)
     }
-  }
+
+    console.log(id)
+  //   } else if(!un.checkValidity() && !pw.checkValidity() && un.length){
+  //   errorField.style.color = 'red';
+  //   errorField.innerText = 'Username or Password is Incorrect'
+  // }
+
+  },
+
+  // getInputValues() {
+  //   const un = document.querySelector('#usernameField')
+  //   const pw = document.querySelector('#passwordField')
+  //   const loginBtn = document.querySelector('#loginSubmit')
+  //   let userID
+  //
+  //   userID = un.value.split('traveler')
+  // } else {
+  //   un.value = '';
+  //   pw.value = '';
+  //   return errorField.innerText = 'Username or Password is Incorrect'
+  // }
+//
+//   if(userID[1] > 50){
+//     un.value = '';
+//     pw.value = '';
+//     return errorField.innerText = 'Username not found, please try again'
+//   } else {
+//
+//     return userID[1]
+//   }
+// };
 };
-
 export default domUpdates;

@@ -3,6 +3,7 @@
   @include dimensions(50vh, 50vw);
   @include center-section;
   box-sizing: border-box;
+  @include flexColumn();
 }
 
 .login-form {
@@ -11,4 +12,11 @@
 
 .login-form-field {
   @include dimensions(auto, 20vw);
+}
+
+.invalid-login {
+  color: black;
+  margin-bottom: 50px;
+
+
 }
