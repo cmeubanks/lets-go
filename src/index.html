@@ -15,10 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
   <body>
-    <section class='error-container hidden' id='errorDontainer'>
+    <section class='error-container hidden' id='errorContainer' aria-errormessage='errorText'>
       <p class='error-text' id='errorText'></p>
     </section>
-    <section class='loginPage' id='loginPage'>
+    <!-- <section class='loginPage' id='loginPage'>
       <h1 class='login-title'>Let's Go</h1>
       <p class='invalid-login' id='invalidLogin'>Please enter your username and password</p>
       <form id="login-form" class="login-form">
@@ -26,9 +26,9 @@
         <input type="password" name="password" id="passwordField" class="login-form-field" placeholder="Password" minlength='10' maxlength='10' required>
         <input type="submit" value="Login" id="loginSubmit" disabled>
       </form>
-    </section>
-    <main class="hidden" id="main">
-      <header class='header hidden' id='header'>
+    </section> -->
+    <main class="" id="main">
+      <header class='header' id='header'>
         <h1>Let's Go</h1>
         <div class='greeting-container'>
           <h2 class="greeting" id='greeting'>Welcome, User</h2>
@@ -38,8 +38,8 @@
           <button class ="form-btn header-btn" id='formBtn'>Book A New Trip</button>
       </div>
       </header>
-      <div class='modal'>
-        <div class='modal-content' id='modalContent'>
+      <div class='modal' aria-label='modal to display Request new Trip Form' role='form'>
+        <div class='modal-content' aria-lable='Request New Trip form' role='form' id='modalContent'>
           <h3>Book a Trip</h3>
           <input type='date' id ='start' name='trip-start' value='2020-08-01' min='2020-08-01' max ='2021-12-31' required>
           <label for='duration'>How long would you like to stay: </label>
@@ -56,7 +56,7 @@
           <button type="button" name="close-btn" class="close-btn" id="closeBtn" >Close Window</button>
         </div>
       </div>
-      <section class="trips hidden" id='trips'>
+      <section class="trips" id='trips'>
          <div class="trip-btn-container">
            <button class="trip-btn" id="future">Upcoming Trips</button>
            <button class="trip-btn" id="present">Current Trips</button>

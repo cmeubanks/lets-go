@@ -32,7 +32,7 @@ closeWindow.addEventListener('click', closeForm)
 tripEstimate.addEventListener('click', calculateNewTripCost)
 modal.addEventListener('keyup', checkModalValidity)
 submitRequest.addEventListener('click', requestNewTrip)
-login.addEventListener('click', verifyLogin)
+// login.addEventListener('click', verifyLogin)
 loginField.forEach(field => field.addEventListener('keyup', checkLoginFields))
 logout.addEventListener('click', logoutOfApp)
 
