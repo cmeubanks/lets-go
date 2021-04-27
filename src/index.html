@@ -15,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
   <body>
+    <section class='error-container hidden' id='errorDontainer'>
+      <p class='error-text' id='errorText'></p>
+    </section>
     <section class='loginPage' id='loginPage'>
       <p class='invalid-login' id='invalidLogin'>Please enter your username and password</p>
       <form id="login-form" class="login-form">
@@ -30,7 +33,7 @@
           <h2 class="greeting" id='greeting'>Welcome, User</h2>
           <h2>Today's Date: January 9, 2020</h2>
           <h2 id="spending">Total Spent this year: $$</h2>
-          <button class="logout header-btn small-btn">Log Out</button>
+          <button class="logout header-btn small-btn" id='logout'>Log Out</button>
           <button class ="form-btn header-btn" id='formBtn'>Book A New Trip</button>
       </div>
       </header>

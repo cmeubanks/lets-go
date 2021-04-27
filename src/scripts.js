@@ -22,6 +22,7 @@ const tripEstimate = document.querySelector('#tripEst')
 const submitRequest = document.querySelector('#tripRqst')
 const login = document.querySelector('#loginSubmit')
 const loginField = document.querySelectorAll('.login-form-field')
+const logout = document.querySelector('#logout');
 
 
 // window.addEventListener('load', loadData)
@@ -33,6 +34,7 @@ modal.addEventListener('keyup', checkModalValidity)
 submitRequest.addEventListener('click', requestNewTrip)
 login.addEventListener('click', verifyLogin)
 loginField.forEach(field => field.addEventListener('keyup', checkLoginFields))
+logout.addEventListener('click', logoutOfApp)
 
 function checkLoginFields() {
   // event.preventDefault()
@@ -159,5 +161,8 @@ function requestNewTrip() {
       // console.log(traveler.pendingTrips)
       //domUpdates - displayPendingTrips
     })
+}
 
+function logoutOfApp() {
+  domUpdates.hideHome();
 }
