@@ -1,28 +1,29 @@
 .modal {
   display: none;
-  position: fixed;
+  // position: fixed;
   padding-top: 50px;
   left: 0;
   top: 0;
-  width: 70%;
-  height: 70%;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  // background-color: rgb(0, 0, 0);
+  background-color: grey;
 }
+
 .modal-content {
-  position: relative;
-  background-color: white;
-  padding: 20px;
-  margin: auto;
-  width: 75%;
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
+  // @include dimensions(auto, 50%)
+  display: flex;
+  // position: relative;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  font-size: 1.3em;
 }
+
 .close-btn, .trip-Est, .trip-Rqst {
-  float: right;
-  color: lightgray;
-  font-size: 24px;
-  font-weight: bold;
+  @include button-style;
 }
