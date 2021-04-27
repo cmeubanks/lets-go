@@ -1,6 +1,20 @@
 
-@media only screen and (max-width: 375px) {
+@media screen and (max-width: 800px) {
   .header {
     font-size: .8em;
+  }
+
+  .trips {
+    margin-top: 20px;
+  }
+
+  .trip-btn {
+    @include dimensions(1px, auto);
+    font-size: 70%;
+    height: 7vh;
+  }
+
+  .trip-btn-container {
+    display: flex;
   }
 }

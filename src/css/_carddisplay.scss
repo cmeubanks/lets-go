@@ -26,6 +26,7 @@
 .trip-btn {
   @include button-style;
   @include dimensions(10vh, auto)
+  font-family: $main-font;
   font-size: 1.1em;
 }
 
