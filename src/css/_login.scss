@@ -2,8 +2,8 @@
   @include section-background();
   @include dimensions(50vh, 50vw);
   @include center-section;
-  box-sizing: border-box;
   @include flexColumn();
+  box-sizing: border-box;
 }
 
 .login-form {
@@ -11,6 +11,7 @@
 }
 
 .login-title {
+  text-align: center;
   margin-bottom: 10%;
 }
 
@@ -19,6 +20,7 @@
 }
 
 .invalid-login {
+  text-align: center;
   color: black;
   margin-bottom: 50px;
 }

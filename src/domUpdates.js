@@ -128,7 +128,12 @@ const domUpdates = {
 
   displayNewTripCost(sum) {
     const tripTotal = document.querySelector('#tripTotal')
-    tripTotal.innerText = sum;
+    let formatter = new Intl.NumberFormat('en-US', {
+      style:'currency',
+      currency: 'USD'
+    })
+
+    tripTotal.innerText = `Trip Cost: ${formatter.format(sum)}`;
   },
 
   removeLoginError() {
