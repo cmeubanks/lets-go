@@ -1,4 +1,3 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
 @import 'variables';
 @import 'mixin';
 @import 'reset';
@@ -16,6 +15,7 @@ html {
 
 body {
   @include dimensions(100vh, 100vw);
+  @include flexColumn();
   @include center-section();
   background: $primary-background no-repeat;
   background-size: cover;
@@ -31,9 +31,15 @@ main {
   box-sizing: border-box;
 }
 
-// svg {
-//   display: none;
-// }
+.error-container {
+  @include dimensions(20%, 20%);
+  @include section-background;
+  @include flexColumn;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10%;
+  color: red;
+}
 
 .hidden {
   display: none;

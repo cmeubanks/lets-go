@@ -1,12 +1,9 @@
 const domUpdates = {
 
   cardUpdates(traveler, buttonId){
-    console.log("cardUpdates - traveler", traveler)
-    console.log("cardUpdates - btn", buttonId)
     const tripCards = document.querySelector('.card-container');
     const cardHeader = document.querySelector('#trip-type-section')
     cardHeader.innerHTML = `${buttonId} trips`
-    console.log(traveler[buttonId])
     tripCards.innerHTML = '';
     let tripInfo = '';
     if (traveler[buttonId].length > 0) {
@@ -54,6 +51,18 @@ const domUpdates = {
   hideModal() {
     const modal = document.querySelector('.modal')
     modal.style.display = 'none';
+  },
+
+  hideHome() {
+    const header = document.querySelector('#header')
+    const trips = document.querySelector('#trips')
+    const login = document.querySelector('#loginPage')
+    const main = document.querySelector('#main')
+
+    header.classList.add('hidden')
+    main.classList.add('hidden')
+    trips.classList.add('hidden')
+    login.classList.remove('hidden')
   },
 
   showHome() {
@@ -110,7 +119,7 @@ const domUpdates = {
     //     textField.innerText = ''
     //   }, 3000)
     // }
-  
+
     if(startVal.checkValidity() && durationVal.checkValidity() && groupVal.checkValidity() && destinationVal.value !== 'Trip Choice'){
       submit.disabled = false;
       textField.innerText = 'Check Trip Cost or Submit Request Now!';
@@ -155,6 +164,13 @@ const domUpdates = {
           errorField.innerText = 'Enter Username and Password'
         }, 3000)
     }
+  },
+
+  catchErrors(text){
+    let field = document.querySelector('.error-container');
+    let errorInput = document.querySelector('#errorText')
+    field.classList.remove('hidden');
+    errorInput.innerText = `${text}`
   },
 
 };
