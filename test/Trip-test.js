@@ -9,7 +9,8 @@ describe('Trip', () => {
 
   beforeEach(() => {
 
-      trip = new Trip(destinationTestData, tripTestData);
+      trip = new Trip(destinationTestData.destinations, tripTestData.trips);
+
   })
 
   it('should be a function', () => {
@@ -19,7 +20,7 @@ describe('Trip', () => {
 
   it('should contain a property that holds all destination data', () => {
 
-    expect(trip.destinationData.destinations).to.deep.equal([
+    expect(trip.destinationData).to.deep.equal([
            {
                "id": 14,
                "destination": "Lima, Peru",
@@ -73,7 +74,7 @@ describe('Trip', () => {
 
        it('should contain a property to hold all trip data', () => {
 
-       expect(trip.tripData.trips).to.deep.equal([  {
+       expect(trip.tripData).to.deep.equal([  {
                "id": 117,
                "userID": 1,
                "destinationID": 28,
@@ -187,5 +188,5 @@ describe('Trip', () => {
 
     const moneySpent = trip.travelerTotalSpentInYear(1, '2020/02/09')
    expect(moneySpent).to.equal(3740)
- })
-})
+ });
+});
