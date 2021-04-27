@@ -124,6 +124,7 @@ const domUpdates = {
     //   }, 3000)
     // }
 
+    if (!startVal.value.length || !durationVal.value.length || !groupVal.value.length || !destinationVal.value.length) submit.disabled = true
     if(startVal.checkValidity() && durationVal.checkValidity() && groupVal.checkValidity() && destinationVal.value !== 'Trip Choice'){
       submit.disabled = false;
       textField.innerText = 'Check Trip Cost or Submit Request Now!';
@@ -141,8 +142,13 @@ const domUpdates = {
   },
 
   displayPostConfirmationNumber(num) {
+    const durationVal = document.querySelector('#duration');
+    const groupVal = document.querySelector('#groupCount');
+    const submit = document.querySelector('#tripRqst')
     const tripConfirmation = document.querySelector('#tripTotal')
-
+    durationVal.value = ''
+    groupVal.value = ''
+    submit.disabled = true;
     tripConfirmation.innerText = `Confirmation Number:${num}. Our agency is processing your request`
   },
 
