@@ -16,6 +16,7 @@ var dayjs = require('dayjs')
 const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
 const formBtn = document.querySelector('#formBtn');
+const modal = document.querySelector('#modalContent');
 const closeWindow = document.querySelector('#closeBtn');
 const tripEstimate = document.querySelector('#tripEst')
 const submitRequest = document.querySelector('#tripRqst')
@@ -28,6 +29,7 @@ tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 formBtn.addEventListener('click', loadForm)
 closeWindow.addEventListener('click', closeForm)
 tripEstimate.addEventListener('click', calculateNewTripCost)
+modal.addEventListener('keyup', checkModalValidity)
 submitRequest.addEventListener('click', requestNewTrip)
 login.addEventListener('click', verifyLogin)
 loginField.forEach(field => field.addEventListener('keyup', checkLoginFields))
@@ -84,6 +86,11 @@ function displayTrips(event) {
 function loadForm() {
   domUpdates.loadDropDownData(destinations);
   domUpdates.showModal();
+}
+
+function checkModalValidity() {
+  //event listener on whole form (event targetting), keyup
+  domUpdates.checkModalFields()
 }
 
 function closeForm() {

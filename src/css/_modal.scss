@@ -36,6 +36,12 @@
   font-size: 1.3em;
 }
 
+.trip-Total {
+  @include dimensions(15%, 100%)
+  text-align: center;
+  margin-top: 10px;
+}
+
 .close-btn, .trip-Est, .trip-Rqst {
   @include button-style;
   border-color: $color2;

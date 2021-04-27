@@ -45,6 +45,7 @@ const domUpdates = {
     tripChoice.insertAdjacentHTML('beforeend', destinationSelection);
   },
 
+
   showModal() {
     const modal = document.querySelector('.modal')
     modal.style.display = 'block';
@@ -91,6 +92,31 @@ const domUpdates = {
     return postObj
   },
 
+  checkModalFields() {
+
+    const startVal = document.querySelector('#start');
+    const durationVal = document.querySelector('#duration');
+    const groupVal = document.querySelector('#groupCount');
+    const destinationVal = document.querySelector('#tripChoice');
+    const textField = document.querySelector('#tripTotal')
+    const submit = document.querySelector('#tripRqst')
+    let formObj = this.getFormValues()
+
+    // if(formObj.groupCount <= 0 || formObj.duration <= 0 || fromObj.groupCount > 99 || formObj.duration > 99){
+    //   textField.style.color = 'red';
+    //   textField.innerText = 'Group Count & Duration must be between 1-99';
+    //   setTimeout(() => {
+    //     textField.style.color = 'black';
+    //     textField.innerText = ''
+    //   }, 3000)
+    // }
+  
+    if(startVal.checkValidity() && durationVal.checkValidity() && groupVal.checkValidity() && destinationVal.value !== 'Trip Choice'){
+      submit.disabled = false;
+      textField.innerText = 'Check Trip Cost or Submit Request Now!';
+    }
+  },
+
   displayNewTripCost(sum) {
     const tripTotal = document.querySelector('#tripTotal')
     tripTotal.innerText = sum;
@@ -105,7 +131,6 @@ const domUpdates = {
   },
 
   checkCredentials() {
-    debugger
     const un = document.querySelector('#usernameField')
     const pw = document.querySelector('#passwordField')
     const loginBtn = document.querySelector('#loginSubmit')
