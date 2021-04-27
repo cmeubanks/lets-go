@@ -1,13 +1,26 @@
 .header {
-  @include dimensions(auto, 80vw);
+  @include dimensions(130px, 80vw);
+  max-height: 130px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  overflow: hidden;
 }
 
 h1{
   font-family: $title-font;
   color: $color1;
   font-size: 4em;
+}
+
+.greeting-container {
+  @include flexColumn;
+  justify-content: space-around;
+}
+
+.header-btn {
+  @include button-style
+  &:hover {
+
+  }
 }

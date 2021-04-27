@@ -27,6 +27,7 @@ main {
   @include dimensions(90vh, 90vw);
   @include flexColumn;
   @include center-section;
+  @include section-background;
   box-sizing: border-box;
 }
 
