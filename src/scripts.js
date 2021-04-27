@@ -59,8 +59,8 @@ function loadData(id) {
     .then(data => {
       destinations = new Destinations(data[0].destinations)
       trip = new Trip(data[0].destinations, data[1].trips)
-      traveler = new Traveler(data[2], trip.getTravelersTrips(id), trip.travelerTotalSpentInYear(id, "2021/01/09"), data[0].destinations)
-      showTrips("2021/01/09")
+      traveler = new Traveler(data[2], trip.getTravelersTrips(id), trip.travelerTotalSpentInYear(id, "2020/01/09"), data[0].destinations)
+      showTrips("2020/01/09")
       domUpdates.greetUser(traveler.name, traveler.totalCostofTrips)
       domUpdates.showHome()
     })

@@ -4,6 +4,8 @@ const domUpdates = {
     console.log("cardUpdates - traveler", traveler)
     console.log("cardUpdates - btn", buttonId)
     const tripCards = document.querySelector('.card-container');
+    const cardHeader = document.querySelector('#trip-type-section')
+    cardHeader.innerHTML = `${buttonId} trips`
     console.log(traveler[buttonId])
     tripCards.innerHTML = '';
     let tripInfo = '';
@@ -12,15 +14,12 @@ const domUpdates = {
         const formattedDate = trip.date;
         tripInfo += `
         <article class="trip-cards">
-        <div class="img-wrap">
         <img class="trip-img" src=${trip.destination.image} alt=${trip.destination.alt}>
-        </div>
         <h3 class="destination-name">${trip.destination.destination}</h3>
         <p>Trip date: ${formattedDate} <br>
         Travelers: ${trip.travelers} <br>
         Duration: ${trip.duration} <br>
         Status: ${trip.status} <br> </p>
-        <a>Request activities from your travel agent!</a>
         </article>
         `;
       })
@@ -60,8 +59,10 @@ const domUpdates = {
     const header = document.querySelector('#header')
     const trips = document.querySelector('#trips')
     const login = document.querySelector('#loginPage')
+    const main = document.querySelector('#main')
 
     header.classList.remove('hidden')
+    main.classList.remove('hidden')
     trips.classList.remove('hidden')
     login.classList.add('hidden')
   },
