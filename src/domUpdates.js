@@ -96,18 +96,18 @@ const domUpdates = {
     tripTotal.innerText = sum;
   },
 
-  checkLoginFields() {
-    event.preventDefault()
-    const un = document.querySelector('#usernameField')
-    const pw = document.querySelector('#passwordField')
-    const errorField = document.querySelector('#invalidLogin')
-
-    if(!un.value || !pw.value){
-      return errorField.innerText = 'Username or Password is Incorrect'
-    }
+  // checkLoginFields() {
+  //   event.preventDefault()
+  //   const un = document.querySelector('#usernameField')
+  //   const pw = document.querySelector('#passwordField')
+  //   const errorField = document.querySelector('#invalidLogin')
+  //
+  //   if(!un.value || !pw.value){
+  //     return errorField.innerText = 'Username or Password is Incorrect'
+  //   }
 
     // if(un.value.includes('traveler') && pw.value === 'travel2020')
-  },
+  // },
 
   removeLoginError() {
     const errorField = document.querySelector('#invalidLogin')
@@ -118,6 +118,7 @@ const domUpdates = {
   },
 
   checkCredentials() {
+    debugger
     const un = document.querySelector('#usernameField')
     const pw = document.querySelector('#passwordField')
     const loginBtn = document.querySelector('#loginSubmit')
@@ -133,6 +134,7 @@ const domUpdates = {
 
     if(id > 0 && id <= 50) {
       loginBtn.disabled = false;
+      return id
     } else {
       errorField.style.color = 'red';
       errorField.innerText = 'Username not found'
@@ -142,7 +144,7 @@ const domUpdates = {
         }, 3000)
     }
 
-    console.log(id)
+    // console.log(id)
   //   } else if(!un.checkValidity() && !pw.checkValidity() && un.length){
   //   errorField.style.color = 'red';
   //   errorField.innerText = 'Username or Password is Incorrect'

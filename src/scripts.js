@@ -36,14 +36,19 @@ loginField.forEach(field => field.addEventListener('keyup', checkLoginFields))
 
 function checkLoginFields() {
   // event.preventDefault()
-  domUpdates.checkCredentials()
+  const id = domUpdates.checkCredentials()
+
+  if(login.disabled === false){
+    console.log(id)
+  return id
+}
   // domUpdates.removeLoginError()
 }
 
-function verifyLogin(event) {
-  // event.preventDefault()
-  domUpdates.checkLoginFields()
-  const userID = domUpdates.checkCredentials()
+function verifyLogin() {
+  event.preventDefault()
+  // domUpdates.checkLoginFields()
+  const userID = checkLoginFields()
 
   if(userID){
     const id = parseInt(userID)
