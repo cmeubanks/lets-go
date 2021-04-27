@@ -182,4 +182,28 @@ describe('Traveler', () => {
     expect(traveler).to.have.property('pending');
     expect(traveler.past).to.deep.equal([]);
   })
+
+  it('should update the past trips property when the showPastTrips method is invoked', () => {
+
+    const pastTrips = traveler.showPastTrips('2020/02/09')
+
+    expect(traveler.past).to.deep.equal([{
+       "id": 120,
+       "userID": 1,
+       "destinationID": 28,
+       "travelers": 1,
+       "date": "2020/01/09",
+       "destination": {
+      "alt": "city with boats on the water during the day time",
+      "destination": "Stockholm, Sweden",
+      "estimatedFlightCostPerPerson": 780,
+      "estimatedLodgingCostPerDay": 100,
+      "id": 28,
+      "image": "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+    },
+       "duration": 10,
+       "status": "approved",
+       "suggestedActivities": []
+   }]);
+  })
 })
