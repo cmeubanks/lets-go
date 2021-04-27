@@ -14,6 +14,16 @@
   align-items: center;
 }
 
+@mixin button-style() {
+  border-radius: 5px;
+  background: none;
+  border-color: $color1;
+  border-width: thin;
+  font-size: 1em;
+}
+
+
+
 @mixin section-background() {
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.4);
   background-color: rgba(255, 255, 255, 0.7)
