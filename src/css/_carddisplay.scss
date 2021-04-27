@@ -1,5 +1,8 @@
 .trips {
-  @include dimensions(80vh, auto)
+  @include dimensions(80vh, 80vw);
+  @include flexColumn;
+  align-items: center;
+  overflow: hidden;
 }
 
 .card-container{
@@ -18,4 +21,15 @@
 .trip-img {
   max-height: auto;
   max-width: 40%;
+}
+
+.trip-btn {
+  @include button-style;
+  @include dimensions(10vh, auto)
+  font-size: 1.1em;
+}
+
+.trip-header {
+  margin-top: 10px;
+  font-size: $font-title;
 }
