@@ -28,27 +28,27 @@
         <h1>Let's Go</h1>
         <div class='greeting-container'>
           <h2 class="greeting" id='greeting'>Welcome, User</h2>
-          <h2>Today's Date: January 9, 2021</h2>
+          <h2>Today's Date: January 9, 2020</h2>
           <h2 id="spending">Total Spent this year: $$</h2>
           <button class="logout header-btn small-btn">Log Out</button>
           <button class ="form-btn header-btn" id='formBtn'>Book A New Trip</button>
       </div>
       </header>
       <div class='modal'>
-        <div class='modal-content'>
+        <div class='modal-content' id='modalContent'>
           <h3>Book a Trip</h3>
-          <input type='date' id ='start' name='trip-start' value='2020-05-03' min='2020-08-01' max ='2021-12-31'>
+          <input type='date' id ='start' name='trip-start' value='2020-08-01' min='2020-08-01' max ='2021-12-31' required>
           <label for='duration'>How long would you like to stay: </label>
-          <input type='number' name="duration" id="duration" required>
+          <input type='number' name="duration" id="duration" min='1' max='99' minlength='1' required>
           <label for='groupCount'>How many people in your group: </label>
-          <input type='number' name="groupCount" id="groupCount" required>
+          <input type='number' name="groupCount" id="groupCount" min='1' max='99' minlength='1' required>
           <label for='destination-choice'>Where would you like to go:</label>
-          <select name="destination-choice" id="tripChoice" class="trip-choice">
-            <option value="tripChoice" class="trip-choice"></option>
+          <select name="destination-choice" id="tripChoice" class="trip-choice" required>
+            <option value="tripChoice" class="trip-choice">Select Location</option>
           </select>
           <p class='trip-Total' id='tripTotal'></p>
           <button type='button' name='trip-est' class='trip-Est' id='tripEst'>Show Me Trip Cost</button>
-          <button type="button" name='trip-Rqst' class='trip-Rqst' id='tripRqst'>Submit Trip Request</button>
+          <button type="button" name='trip-Rqst' class='trip-Rqst' id='tripRqst' disabled>Submit Trip Request</button>
           <button type="button" name="close-btn" class="close-btn" id="closeBtn" >Close Window</button>
         </div>
       </div>
