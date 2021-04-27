@@ -105,7 +105,7 @@ describe('Traveler', () => {
   })
 
   it('should hold all destination data', () => {
-  
+
     expect(traveler).to.have.property('destinations');
     expect(traveler.destinations).to.deep.equal([
   {
@@ -157,5 +157,29 @@ describe('Traveler', () => {
     alt: 'lit up city at night'
   }
   ])
+  })
+
+  it('should contain a property to hold a list of past trips', () => {
+
+    expect(traveler).to.have.property('past');
+    expect(traveler.past).to.deep.equal([]);
+  })
+
+  it('should contain a property to hold a list of present trips', () => {
+
+    expect(traveler).to.have.property('present');
+    expect(traveler.past).to.deep.equal([]);
+  })
+
+  it('should contain a property to hold a list of future trips', () => {
+
+    expect(traveler).to.have.property('future');
+    expect(traveler.past).to.deep.equal([]);
+  })
+
+  it('should contain a property to hold a list of pending trips', () => {
+
+    expect(traveler).to.have.property('pending');
+    expect(traveler.past).to.deep.equal([]);
   })
 })
