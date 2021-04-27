@@ -206,4 +206,92 @@ describe('Traveler', () => {
        "suggestedActivities": []
    }]);
   })
+
+  it('should update the future trips property when the showPresentTrips method is invoked', () => {
+
+    const presentTrips = traveler.showPresentTrips('2020/02/09')
+
+    expect(traveler.present).to.deep.equal([])
+  })
+
+  it('should update the present trips property when the showFutureTrips method is invoked', () => {
+
+    const futureTrips = traveler.showFutureTrips('2020/02/09')
+
+    expect(traveler.future).to.deep.equal([
+        {
+          "date": "2021/01/09",
+          "destination": {
+            "alt": "city with boats on the water during the day time",
+            "destination": "Stockholm, Sweden",
+            "estimatedFlightCostPerPerson": 780,
+            "estimatedLodgingCostPerDay": 100,
+            "id": 28,
+            "image": "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+          },
+          "destinationID": 28,
+          "duration": 15,
+          "id": 117,
+          "status": "approved",
+          "suggestedActivities": [],
+          "travelers": 3,
+          "userID": 1,
+        },
+        {
+          "date": "2021/02/09",
+          "destination": {
+            "alt": "boats at a dock during the day time",
+            "destination": "Cartagena, Colombia",
+            "estimatedFlightCostPerPerson": 350,
+            "estimatedLodgingCostPerDay": 65,
+            "id": 13,
+            "image": "https://images.unsplash.com/photo-1558029697-a7ed1a4b94c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+          },
+          "destinationID": 13,
+          "duration": 7,
+          "id": 118,
+          "status": "approved",
+          "suggestedActivities": [],
+          "travelers": 2,
+          "userID": 1,
+        },
+        {
+          "date": "2021/10/09",
+          "destination": {
+            "alt": "city with clear skys and a road in the day time",
+            "destination": "Madrid, Spain",
+            "estimatedFlightCostPerPerson": 650,
+            "estimatedLodgingCostPerDay": 150,
+            "id": 5,
+            "image": "https://images.unsplash.com/photo-1543785734-4b6e564642f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+          },
+          "destinationID": 5,
+          "duration": 4,
+          "id": 119,
+          "status": "pending",
+          "suggestedActivities": [],
+          "travelers": 4,
+          "userID": 1,
+        },
+        {
+          "date": "2020/11/09",
+          "destination": {
+            "alt": "overview of city buildings with a clear sky",
+           "destination": "Lima, Peru",
+            "estimatedFlightCostPerPerson": 400,
+            "estimatedLodgingCostPerDay": 70,
+            "id": 14,
+            "image": "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+          },
+          "destinationID": 14,
+          "duration": 6,
+          "id": 121,
+          "status": "approved",
+          "suggestedActivities": [],
+          "travelers": 3,
+          "userID": 1,
+       },
+      ]);
+  })
+
 })
