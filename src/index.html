@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <!-- <meta charset="utf-8">
+    <meta charset="utf-8">
     <link rel="shortcut icon" href="#">
     <meta name="authors" content="Caroline Eubanks">
     <meta name="description" content="Mod 2 - Final Project - Travel Tracker">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Let's Go</title>
-    <!-- <link type="text/css" href="../css/base.css"> -->
+    <link type="text/css" href="../css/base.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
   <body>
     <section class='loginPage' id='loginPage'>
-      <p class='invalid-login' id='invalidLogin'></p>
+      <p class='invalid-login' id='invalidLogin'>Please enter your username and password</p>
       <form id="login-form" class="login-form">
-        <input type="text" name="username" id="usernameField" class="login-form-field" placeholder="Username">
-        <input type="password" name="password" id="passwordField" class="login-form-field" placeholder="Password">
-        <input type="submit" value="Login" id="loginSubmit">
+        <input type="text" name="username" id="usernameField" class="login-form-field" placeholder="Username" minlength='9' maxlength='10' required>
+        <input type="password" name="password" id="passwordField" class="login-form-field" placeholder="Password" minlength='10' maxlength='10' required>
+        <input type="submit" value="Login" id="loginSubmit" disabled>
       </form>
     </section>
-    <header class='hidden' id='header'>
-      <h1>Let's Go</h1>
-      <h2 class="greeting" id='greeting'>Welcome, User</h2>
-      <h2>Today's Date: January 9, 2021</h2>
-      <h2 id="spending">Total Spent this year: $$</h2>
-      <button class="logout small-btn">Log Out</button>
-      <button class ="form-btn" id='formBtn'>Book A New Trip</button>
-    </header>
-    <div class='modal'>
-      <h3>Book a Trip</h3>
-      <input type='date' id ='start' name='trip-start' value='2020-05-03' min='2020-08-01' max ='2021-12-31'>
-      <label for='duration'>How long would you like to stay: </label>
-      <input type='number' name="duration" id="duration" required>
-      <label for='groupCount'>How many people in your group: </label>
-      <input type='number' name="groupCount" id="groupCount" required>
-      <label for='destination-choice'>Where would you like to go:</label>
-      <select name="destination-choice" id="tripChoice">
-        <option value="">Please choose an option</option>
-      </select>
-      <p class='trip-Total' id='tripTotal'></p>
-      <button type='button' name='trip-est' class='trip-Est' id='tripEst'>Show Me Trip Cost</button>
-      <button type="button" name='trip-Rqst' class='trip-Rqst' id='tripRqst'>Submit Trip Request</button>
-      <button type="button" name="close-btn" class="close-btn" id="closeBtn" >Close Window</button>
-    </div>
-    <section class="trips hidden" id='trips'>
-       <div class="trip-btn-container">
-         <button class="trip-btn" id="upcoming">Upcoming Trips</button>
-         <button class="trip-btn" id="present">Current Trips</button>
-         <button class="trip-btn" id="pending">Pending Trips</button>
-         <button class="trip-btn" id="past">Past Trips</button>
-       </div>
-       <h2 id="trip-type-section">UPCOMING TRIPS</h2>
-       <div class="card-container">
-       </div>
-     </section>
+    <main class="hidden" id="main">
+      <header class='header hidden' id='header'>
+        <h1>Let's Go</h1>
+        <div class='greeting-container'>
+          <h2 class="greeting" id='greeting'>Welcome, User</h2>
+          <h2>Today's Date: January 9, 2021</h2>
+          <h2 id="spending">Total Spent this year: $$</h2>
+          <button class="logout header-btn small-btn">Log Out</button>
+          <button class ="form-btn header-btn" id='formBtn'>Book A New Trip</button>
+      </div>
+      </header>
+      <div class='modal'>
+        <div class='modal-content'>
+          <h3>Book a Trip</h3>
+          <input type='date' id ='start' name='trip-start' value='2020-05-03' min='2020-08-01' max ='2021-12-31'>
+          <label for='duration'>How long would you like to stay: </label>
+          <input type='number' name="duration" id="duration" required>
+          <label for='groupCount'>How many people in your group: </label>
+          <input type='number' name="groupCount" id="groupCount" required>
+          <label for='destination-choice'>Where would you like to go:</label>
+          <select name="destination-choice" id="tripChoice" class="trip-choice">
+            <option value="tripChoice" class="trip-choice"></option>
+          </select>
+          <p class='trip-Total' id='tripTotal'></p>
+          <button type='button' name='trip-est' class='trip-Est' id='tripEst'>Show Me Trip Cost</button>
+          <button type="button" name='trip-Rqst' class='trip-Rqst' id='tripRqst'>Submit Trip Request</button>
+          <button type="button" name="close-btn" class="close-btn" id="closeBtn" >Close Window</button>
+        </div>
+      </div>
+      <section class="trips hidden" id='trips'>
+         <div class="trip-btn-container">
+           <button class="trip-btn" id="future">Upcoming Trips</button>
+           <button class="trip-btn" id="present">Current Trips</button>
+           <button class="trip-btn" id="pending">Pending Trips</button>
+           <button class="trip-btn" id="past">Past Trips</button>
+         </div>
+         <h2 class='trip-header' id="trip-type-section">select a button to view trips</h2>
+         <div class="card-container">
+         </div>
+       </section>
+   </main>
   </body>
 </html>

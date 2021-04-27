@@ -1,6 +1,4 @@
 import {getData} from './api'
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-
 
 import './images/turing-logo.png'
 
@@ -32,25 +30,28 @@ closeWindow.addEventListener('click', closeForm)
 tripEstimate.addEventListener('click', calculateNewTripCost)
 submitRequest.addEventListener('click', requestNewTrip)
 login.addEventListener('click', verifyLogin)
-loginField.forEach(field => field.addEventListener('keydown', removeError))
+loginField.forEach(field => field.addEventListener('keyup', checkLoginFields))
 
-function removeError() {
-  domUpdates.removeLoginError()
+function checkLoginFields() {
+  // event.preventDefault()
+  const id = domUpdates.checkCredentials()
+
+  if(login.disabled === false){
+    console.log(id)
+  return id
+}
+  // domUpdates.removeLoginError()
 }
 
 function verifyLogin() {
-  domUpdates.checkLoginFields()
-  const userID = domUpdates.checkCredentials()
+  event.preventDefault()
+  // domUpdates.checkLoginFields()
+  const userID = checkLoginFields()
 
   if(userID){
     const id = parseInt(userID)
     loadData(id)
   }
-
-  //check if inputfields are empty
-  //check that username and password is correct format
-  //if it's the correct format use .split to get is from end of username
-  //call loadData function(with new id parameter) to load homepage & unhide/hid appropriate items
 }
 
 function loadData(id) {
@@ -59,8 +60,8 @@ function loadData(id) {
     .then(data => {
       destinations = new Destinations(data[0].destinations)
       trip = new Trip(data[0].destinations, data[1].trips)
-      traveler = new Traveler(data[2], trip.getTravelersTrips(id), trip.travelerTotalSpentInYear(id, "2021/01/09"), data[0].destinations)
-      showTrips("2021/01/09")
+      traveler = new Traveler(data[2], trip.getTravelersTrips(id), trip.travelerTotalSpentInYear(id, "2020/01/09"), data[0].destinations)
+      showTrips("2020/01/09")
       domUpdates.greetUser(traveler.name, traveler.totalCostofTrips)
       domUpdates.showHome()
     })

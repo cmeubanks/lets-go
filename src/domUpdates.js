@@ -4,6 +4,8 @@ const domUpdates = {
     console.log("cardUpdates - traveler", traveler)
     console.log("cardUpdates - btn", buttonId)
     const tripCards = document.querySelector('.card-container');
+    const cardHeader = document.querySelector('#trip-type-section')
+    cardHeader.innerHTML = `${buttonId} trips`
     console.log(traveler[buttonId])
     tripCards.innerHTML = '';
     let tripInfo = '';
@@ -12,15 +14,12 @@ const domUpdates = {
         const formattedDate = trip.date;
         tripInfo += `
         <article class="trip-cards">
-        <div class="img-wrap">
         <img class="trip-img" src=${trip.destination.image} alt=${trip.destination.alt}>
-        </div>
         <h3 class="destination-name">${trip.destination.destination}</h3>
         <p>Trip date: ${formattedDate} <br>
         Travelers: ${trip.travelers} <br>
         Duration: ${trip.duration} <br>
         Status: ${trip.status} <br> </p>
-        <a>Request activities from your travel agent!</a>
         </article>
         `;
       })
@@ -60,8 +59,10 @@ const domUpdates = {
     const header = document.querySelector('#header')
     const trips = document.querySelector('#trips')
     const login = document.querySelector('#loginPage')
+    const main = document.querySelector('#main')
 
     header.classList.remove('hidden')
+    main.classList.remove('hidden')
     trips.classList.remove('hidden')
     login.classList.add('hidden')
   },
@@ -95,19 +96,6 @@ const domUpdates = {
     tripTotal.innerText = sum;
   },
 
-  checkLoginFields() {
-    event.preventDefault()
-    const un = document.querySelector('#usernameField')
-    const pw = document.querySelector('#passwordField')
-    const errorField = document.querySelector('#invalidLogin')
-
-    if(!un.value || !pw.value){
-      return errorField.innerText = 'Username or Password is Incorrect'
-    }
-
-    // if(un.value.includes('traveler') && pw.value === 'travel2020')
-  },
-
   removeLoginError() {
     const errorField = document.querySelector('#invalidLogin')
 
@@ -117,28 +105,32 @@ const domUpdates = {
   },
 
   checkCredentials() {
+    debugger
     const un = document.querySelector('#usernameField')
     const pw = document.querySelector('#passwordField')
+    const loginBtn = document.querySelector('#loginSubmit')
     const errorField = document.querySelector('#invalidLogin')
-    let userID
+    let userArr, id
 
-    if(un.value.includes('traveler') && (un.value.length <= 10 && un.value.length > 8) && pw.value === 'travel2020'){
-      userID = un.value.split('traveler')
+    if(un.checkValidity() && pw.checkValidity() && un.value.includes('traveler') && pw.value === 'travel2020'){
+      userArr = un.value.split('traveler');
+      id = userArr[1];
     } else {
-      un.value = '';
-      pw.value = '';
-      return errorField.innerText = 'Username or Password is Incorrect'
+      return false
     }
 
-    if(userID[1] > 50){
-      un.value = '';
-      pw.value = '';
-      return errorField.innerText = 'Username not found, please try again'
+    if(id > 0 && id <= 50) {
+      loginBtn.disabled = false;
+      return id
     } else {
-
-      return userID[1]
+      errorField.style.color = 'red';
+      errorField.innerText = 'Username not found'
+        setTimeout(() => {
+          errorField.style.color = 'black';
+          errorField.innerText = 'Enter Username and Password'
+        }, 3000)
     }
-  }
+  },
+
 };
-
 export default domUpdates;

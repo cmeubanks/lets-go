@@ -21,7 +21,8 @@ h1{
 .header-btn {
   @include button-style
   font-family: $main-font;
-  &:hover {
 
-  }
+  // &:hover {
+  //
+  // }
 }
