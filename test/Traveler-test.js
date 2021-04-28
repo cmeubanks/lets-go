@@ -9,7 +9,7 @@ describe('Traveler', () => {
   let travelerData, tripData, trip, traveler
 
   beforeEach(() => {
-    
+
     travelerData = {'id': 1, 'name': 'Ham Leadbeater', 'travelerType': 'relaxer'},
 
     trip = new Trip(destinationTestData.destinations, tripTestData.trips);
@@ -291,5 +291,12 @@ describe('Traveler', () => {
           "userID": 1,
        },
       ]);
+  })
+
+  it('should update the pending trips property when the showPendingTrips method is invoked', () => {
+
+    const pendingTrips = traveler.showPendingTrips('2020/02/09')
+
+    expect(traveler.present).to.deep.equal([])
   })
 })
