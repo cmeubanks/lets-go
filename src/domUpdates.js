@@ -31,7 +31,6 @@ const domUpdates = {
 
   loadDropDownData(destinations) {
     const tripChoice = document.querySelector('#tripChoice');
-    console.log("domupdates", destinations);
     let destinationSelection = '';
     destinations.destinations.forEach(destination => {
       destinationSelection += `
@@ -106,7 +105,6 @@ const domUpdates = {
   },
 
   checkModalFields() {
-
     const startVal = document.querySelector('#start');
     const durationVal = document.querySelector('#duration');
     const groupVal = document.querySelector('#groupCount');
@@ -114,15 +112,6 @@ const domUpdates = {
     const textField = document.querySelector('#tripTotal')
     const submit = document.querySelector('#tripRqst')
     let formObj = this.getFormValues()
-
-    // if(formObj.groupCount <= 0 || formObj.duration <= 0 || fromObj.groupCount > 99 || formObj.duration > 99){
-    //   textField.style.color = 'red';
-    //   textField.innerText = 'Group Count & Duration must be between 1-99';
-    //   setTimeout(() => {
-    //     textField.style.color = 'black';
-    //     textField.innerText = ''
-    //   }, 3000)
-    // }
 
     if (!startVal.value.length || !durationVal.value.length || !groupVal.value.length || !destinationVal.value.length) submit.disabled = true
     if(startVal.checkValidity() && durationVal.checkValidity() && groupVal.checkValidity() && destinationVal.value !== 'Trip Choice'){
