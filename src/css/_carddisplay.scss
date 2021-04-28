@@ -4,6 +4,7 @@
   align-items: center;
   overflow: hidden;
 }
+
 .img-wrapper {
   .destination-name {
     width: 100%;
@@ -21,10 +22,12 @@
     min-height: 93%;
   }
 }
+
 .card-container{
 @include dimensions(50vh, 70vw);
 overflow-y: scroll;
 }
+
 .trip-cards {
   margin-top: 3%;
   box-sizing: border-box;
@@ -42,13 +45,20 @@ overflow-y: scroll;
     color: white;
   }
 }
+
 .trip-btn {
   @include button-style;
   @include dimensions(10vh, auto)
   font-family: $main-font;
   font-size: 1.1em;
 }
+
 .trip-header {
   margin-top: 10px;
   font-size: $font-title;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 15px;
 }
