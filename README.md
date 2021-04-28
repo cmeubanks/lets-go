@@ -61,15 +61,8 @@ Let's Go was created for the traveler eager to explore. We take the hassle out o
 7. Your request trip will now be visible under pending trips
 
 ## Authors
-<table>
-    <tr>
-        <td> Caroline Eubanks <a href="https://github.com/cmeubanks">GH</td>
 
-    </tr>
-    </tr>
-        <td><img src="https://avatars.githubusercontent.com/u/73092355?v=4" alt="C. Eubanks" width="125" height="auto" /></td>
-    </tr>
-</table>
+- Caroline Eubanks: https://github.com/cmeubanks
 
 ## Technologies
 
