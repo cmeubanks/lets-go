@@ -1,5 +1,5 @@
-
 @media screen and (max-width: 800px) {
+
   .header {
     font-size: .8em;
   }
@@ -26,8 +26,23 @@
     width: 60%
   }
 
-  .trip-img {
-    max-height: auto;
-    max-width: 90%;
+  .card-container {
+    width: 85vw;
+  }
+}
+
+@media screen and (max-width: 625px) {
+
+  .trip-cards {
+    .destination-name {
+      height: 10%;
+      font-size: 1em;
+    }
+    .trip-img {
+      max-height: 90%;
+    }
+    p {
+      font-size: .75em;
+    }
   }
 }

@@ -11,8 +11,10 @@ const domUpdates = {
         const formattedDate = trip.date;
         tripInfo += `
         <article class="trip-cards">
-        <img class="trip-img" src=${trip.destination.image} alt=${trip.destination.alt}>
+        <div class="img-wrapper">
         <h3 class="destination-name">${trip.destination.destination}</h3>
+        <img class="trip-img" src=${trip.destination.image} alt=${trip.destination.alt}>
+        </div>
         <p>Trip date: ${formattedDate} <br>
         Travelers: ${trip.travelers} <br>
         Duration: ${trip.duration} <br>
@@ -31,7 +33,6 @@ const domUpdates = {
 
   loadDropDownData(destinations) {
     const tripChoice = document.querySelector('#tripChoice');
-    console.log("domupdates", destinations);
     let destinationSelection = '';
     destinations.destinations.forEach(destination => {
       destinationSelection += `
@@ -49,8 +50,10 @@ const domUpdates = {
   },
 
   hideModal() {
+    const textField = document.querySelector('#tripTotal')
     const modal = document.querySelector('.modal')
     modal.style.display = 'none';
+    textField.innerText = ''
   },
 
   hideHome() {
@@ -106,7 +109,6 @@ const domUpdates = {
   },
 
   checkModalFields() {
-
     const startVal = document.querySelector('#start');
     const durationVal = document.querySelector('#duration');
     const groupVal = document.querySelector('#groupCount');
@@ -114,15 +116,6 @@ const domUpdates = {
     const textField = document.querySelector('#tripTotal')
     const submit = document.querySelector('#tripRqst')
     let formObj = this.getFormValues()
-
-    // if(formObj.groupCount <= 0 || formObj.duration <= 0 || fromObj.groupCount > 99 || formObj.duration > 99){
-    //   textField.style.color = 'red';
-    //   textField.innerText = 'Group Count & Duration must be between 1-99';
-    //   setTimeout(() => {
-    //     textField.style.color = 'black';
-    //     textField.innerText = ''
-    //   }, 3000)
-    // }
 
     if (!startVal.value.length || !durationVal.value.length || !groupVal.value.length || !destinationVal.value.length) submit.disabled = true
     if(startVal.checkValidity() && durationVal.checkValidity() && groupVal.checkValidity() && destinationVal.value !== 'Trip Choice'){
