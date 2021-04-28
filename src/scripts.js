@@ -1,17 +1,11 @@
-import {getData} from './api'
-
-import './images/turing-logo.png'
-
-/* CLASS IMPORTS */
 import Destinations from './Destinations';
 import Traveler from './Traveler';
 import Trip from './Trip';
 import domUpdates from './domUpdates'
-import {sendData} from './api'
-let destinations, trip, traveler;
+import {getData, sendData} from './api'
 
-let destinationsInfo, tripsInfo, travelerInfo
 var dayjs = require('dayjs')
+let destinations, trip, traveler;
 
 const travelerData = document.querySelector('#travelerData')
 const tripButtons = document.querySelectorAll('.trip-btn');
@@ -25,7 +19,6 @@ const loginField = document.querySelectorAll('.login-form-field')
 const logout = document.querySelector('#logout');
 
 
-// window.addEventListener('load', loadData)
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 formBtn.addEventListener('click', loadForm)
 closeWindow.addEventListener('click', closeForm)
@@ -37,18 +30,15 @@ loginField.forEach(field => field.addEventListener('keyup', checkLoginFields))
 logout.addEventListener('click', logoutOfApp)
 
 function checkLoginFields() {
-  // event.preventDefault()
   const id = domUpdates.checkCredentials()
 
-  if(login.disabled === false){
+  if(login.disabled === false) {
   return id
-}
-  // domUpdates.removeLoginError()
+  }
 }
 
 function verifyLogin() {
   event.preventDefault()
-  // domUpdates.checkLoginFields()
   const userID = checkLoginFields()
 
   if(userID){
@@ -58,7 +48,6 @@ function verifyLogin() {
 }
 
 function loadData(id) {
-
   Promise.all([getData('destinations'), getData('trips'), getData(`travelers/${id}`)])
     .then(data => {
       destinations = new Destinations(data[0].destinations)
@@ -68,8 +57,6 @@ function loadData(id) {
       domUpdates.greetUser(traveler.name, traveler.totalCostofTrips)
       domUpdates.showHome()
     })
-
-
 }
 
 function showTrips(date) {
@@ -80,7 +67,6 @@ function showTrips(date) {
 }
 
 function displayTrips(event) {
-  // event.preventDefault()
   domUpdates.cardUpdates(traveler, event.target.id)
 }
 
@@ -90,7 +76,6 @@ function loadForm() {
 }
 
 function checkModalValidity() {
-  //event listener on whole form (event targetting), keyup
   domUpdates.checkModalFields()
 }
 
@@ -106,7 +91,6 @@ function calculateNewTripCost(){
       return place.id
     }
   })
-
   const flightCost = locationObj.estimatedFlightCostPerPerson * postObj.groupCount
   const lodgingCost = locationObj.estimatedLodgingCostPerDay * postObj.duration
 
@@ -117,10 +101,6 @@ function calculateNewTripCost(){
   domUpdates.displayNewTripCost(tripTotalCost);
 }
 
-function calculateTrip(){
-
-
-}
 
 function requestNewTrip() {
   const postObj = domUpdates.getFormValues()
@@ -144,7 +124,6 @@ function requestNewTrip() {
 
     sendData('http://localhost:3001/api/v1/trips', travelerRequest)
     .then(response => {
-      // console.log(response.message)
       const messageSplit = response.message.split(' ')
       domUpdates.displayPostConfirmationNumber(parseInt(messageSplit[3]))
       const destObj = destinations.destinations.find(place => {
