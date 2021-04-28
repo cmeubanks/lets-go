@@ -21,7 +21,7 @@ Let's Go was created for the traveler eager to explore. We take the hassle out o
 * DOM manipulation separate from functionality logic
 * Network request error handling
 
-
+![error-handling](https://user-images.githubusercontent.com/73092355/116330372-9ca02b00-a78a-11eb-87e9-1421946dfbbd.png | width=500)
 
 <img width="500" alt="Screen Shot 2021-04-27 at 2 39 12 PM" src="https://user-images.githubusercontent.com/73092355/116330123-12f05d80-a78a-11eb-8b1e-5c0bf0330283.png">
 
