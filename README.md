@@ -25,6 +25,18 @@ Let's Go was created for the traveler eager to explore. We take the hassle out o
 
 <img width="500" alt="Screen Shot 2021-04-27 at 2 39 12 PM" src="https://user-images.githubusercontent.com/73092355/116330123-12f05d80-a78a-11eb-8b1e-5c0bf0330283.png">
 
+### Login
+![](https://media.giphy.com/media/pXLxycjGpWLxkO4AWu/giphy.gif)
+
+### View Trips
+![](https://media.giphy.com/media/sQbuTViymvIhZNsJ91/giphy.gif)
+
+### Book A New Trip
+![](https://media.giphy.com/media/F28Ov7ZMb7A998WMBZ/giphy.gif)
+
+### Responsive Design
+![](https://media.giphy.com/media/nMNVBmPjEelV3BPtSz/giphy.gif)
+
 ## Installation
 1. Clone the project repository via `git clone git@github.com:cmeubanks/lets-go.git`
 2. Clone the API repository: https://github.com/turingschool-examples/travel-tracker-api
