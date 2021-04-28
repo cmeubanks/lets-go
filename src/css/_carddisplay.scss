@@ -4,30 +4,50 @@
   align-items: center;
   overflow: hidden;
 }
-
+.img-wrapper {
+  .destination-name {
+    width: 100%;
+    height: 7%;
+    font-size: 1.25em;
+    font-weight: 800;
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0,.75);
+  }
+  .trip-img {
+    width: 100%;
+    min-width: 100%;
+    max-height: 93%;
+    min-height: 93%;
+  }
+}
 .card-container{
 @include dimensions(50vh, 70vw);
 overflow-y: scroll;
 }
-
 .trip-cards {
-  @include dimensions(auto, 80%);
   margin-top: 3%;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr .45fr;
+  @include section-background;
+  border: 1px solid rgba(0,0,0,.75);
+  p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    line-height: 2;
+    background-color: rgba(0,0,0,.75);
+    color: white;
+  }
 }
-
-.trip-img {
-  max-height: auto;
-  max-width: 40%;
-}
-
 .trip-btn {
   @include button-style;
   @include dimensions(10vh, auto)
   font-family: $main-font;
   font-size: 1.1em;
 }
-
 .trip-header {
   margin-top: 10px;
   font-size: $font-title;

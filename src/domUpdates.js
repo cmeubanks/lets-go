@@ -11,8 +11,10 @@ const domUpdates = {
         const formattedDate = trip.date;
         tripInfo += `
         <article class="trip-cards">
-        <img class="trip-img" src=${trip.destination.image} alt=${trip.destination.alt}>
+        <div class="img-wrapper">
         <h3 class="destination-name">${trip.destination.destination}</h3>
+        <img class="trip-img" src=${trip.destination.image} alt=${trip.destination.alt}>
+        </div>
         <p>Trip date: ${formattedDate} <br>
         Travelers: ${trip.travelers} <br>
         Duration: ${trip.duration} <br>
@@ -48,8 +50,10 @@ const domUpdates = {
   },
 
   hideModal() {
+    const textField = document.querySelector('#tripTotal')
     const modal = document.querySelector('.modal')
     modal.style.display = 'none';
+    textField.innerText = ''
   },
 
   hideHome() {
