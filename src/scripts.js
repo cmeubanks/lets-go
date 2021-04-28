@@ -133,6 +133,7 @@ function requestNewTrip() {
       })
       response.newTrip.destination = destObj
       traveler.pending.push(response.newTrip)
+      loadData(traveler.id)
     })
 }
 
